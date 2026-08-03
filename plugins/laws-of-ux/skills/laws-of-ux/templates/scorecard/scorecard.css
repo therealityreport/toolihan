@@ -1,0 +1,237 @@
+/* ============================================================
+   laws-of-ux · UX audit scorecard
+   ------------------------------------------------------------
+   Self-contained. Reuses the shadcn/ui token system + Geist Sans
+   + JetBrains Mono from the infographic-docs design language so
+   the scorecard matches that house style, but adds audit-specific
+   components (grade dial, category bars, findings table, fix
+   cards, coverage panel). Automatic prefers-color-scheme dark.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --border: 240 5.9% 90%;
+  --ring: 240 5.9% 10%;
+  --radius: 0.5rem;
+
+  /* grade / severity hues */
+  --grade-a: 160 84% 39%;   /* green */
+  --grade-b: 82 78% 39%;    /* lime  */
+  --grade-c: 38 92% 50%;    /* amber */
+  --grade-d: 25 95% 53%;    /* orange */
+  --grade-f: 347 77% 50%;   /* rose  */
+  --sev-critical: 347 77% 50%;
+  --sev-high: 25 95% 53%;
+  --sev-medium: 38 92% 50%;
+  --sev-low: 217 91% 60%;
+  --sev-info: 240 3.8% 46.1%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --border: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Geist', ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "cv11" 1, "ss01" 1;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 48px 28px 80px; }
+a { color: inherit; }
+.mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+/* header ---------------------------------------------------- */
+.sc-header { margin-bottom: 32px; }
+.sc-eyebrow {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: hsl(var(--muted-foreground)); margin-bottom: 12px;
+}
+.sc-title {
+  font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 600;
+  letter-spacing: -0.025em; line-height: 1.12;
+}
+.sc-meta {
+  margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px;
+}
+.sc-chip {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  padding: 4px 10px; border-radius: 100px;
+  background: hsl(var(--secondary)); border: 1px solid hsl(var(--border));
+  color: hsl(var(--muted-foreground));
+}
+
+/* grade hero ------------------------------------------------ */
+.grade-hero {
+  display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center;
+  background: hsl(var(--card)); border: 1px solid hsl(var(--border));
+  border-radius: var(--radius); padding: 28px; margin-bottom: 28px;
+}
+.grade-dial { position: relative; width: 160px; height: 160px; }
+.grade-dial svg { transform: rotate(-90deg); width: 160px; height: 160px; }
+.grade-dial .track { stroke: hsl(var(--secondary)); }
+.grade-dial .meter { stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+.grade-dial .center {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.grade-dial .letter { font-size: 2.6rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+.grade-dial .pct {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  color: hsl(var(--muted-foreground)); margin-top: 4px;
+}
+.grade-verdict { }
+.grade-verdict h2 { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 8px; }
+.grade-verdict p { color: hsl(var(--muted-foreground)); font-size: 0.95rem; }
+.coverage-band {
+  margin-top: 14px; padding: 12px 14px;
+  background: hsl(var(--secondary) / 0.5); border: 1px solid hsl(var(--border));
+  border-radius: calc(var(--radius) - 2px);
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  color: hsl(var(--muted-foreground)); line-height: 1.6;
+}
+
+/* grade color hooks (set class grade-A … grade-F on .grade-dial) */
+.grade-A .meter, .grade-A .letter { stroke: hsl(var(--grade-a)); color: hsl(var(--grade-a)); }
+.grade-B .meter, .grade-B .letter { stroke: hsl(var(--grade-b)); color: hsl(var(--grade-b)); }
+.grade-C .meter, .grade-C .letter { stroke: hsl(var(--grade-c)); color: hsl(var(--grade-c)); }
+.grade-D .meter, .grade-D .letter { stroke: hsl(var(--grade-d)); color: hsl(var(--grade-d)); }
+.grade-F .meter, .grade-F .letter { stroke: hsl(var(--grade-f)); color: hsl(var(--grade-f)); }
+
+/* section ---------------------------------------------------- */
+.section { margin-top: 40px; }
+.section-eyebrow {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: hsl(var(--muted-foreground)); margin-bottom: 14px;
+}
+
+/* category bars --------------------------------------------- */
+.cat-grid { display: grid; gap: 12px; }
+.cat-row {
+  background: hsl(var(--card)); border: 1px solid hsl(var(--border));
+  border-radius: var(--radius); padding: 16px 20px;
+}
+.cat-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.cat-name { font-weight: 600; font-size: 0.95rem; }
+.cat-score { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: hsl(var(--muted-foreground)); }
+.cat-bar { height: 8px; border-radius: 100px; background: hsl(var(--secondary)); overflow: hidden; }
+.cat-bar > span { display: block; height: 100%; border-radius: 100px; background: hsl(var(--primary)); }
+.cat-sub {
+  margin-top: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: hsl(var(--muted-foreground));
+}
+
+/* findings table -------------------------------------------- */
+.table-scroll { overflow-x: auto; border: 1px solid hsl(var(--border)); border-radius: var(--radius); }
+table.findings { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 720px; }
+table.findings th, table.findings td { text-align: left; padding: 12px 14px; vertical-align: top; }
+table.findings thead th {
+  font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: hsl(var(--muted-foreground)); background: hsl(var(--secondary) / 0.5);
+  border-bottom: 1px solid hsl(var(--border));
+}
+table.findings tbody tr { border-bottom: 1px solid hsl(var(--border)); }
+table.findings tbody tr:last-child { border-bottom: none; }
+table.findings code, .loc {
+  font-family: 'JetBrains Mono', monospace; font-size: 11.5px;
+  background: hsl(var(--secondary)); padding: 1px 6px; border-radius: 4px;
+  border: 1px solid hsl(var(--border)); white-space: nowrap;
+}
+.sev {
+  display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 100px; color: #fff;
+}
+.sev-critical { background: hsl(var(--sev-critical)); }
+.sev-high { background: hsl(var(--sev-high)); }
+.sev-medium { background: hsl(var(--sev-medium)); color: hsl(240 10% 12%); }
+.sev-low { background: hsl(var(--sev-low)); }
+.sev-info { background: hsl(var(--sev-info)); }
+.basis {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  color: hsl(var(--muted-foreground)); text-transform: uppercase; letter-spacing: 0.06em;
+}
+
+/* fix cards -------------------------------------------------- */
+.fix-list { display: grid; gap: 12px; }
+.fix-card {
+  background: hsl(var(--card)); border: 1px solid hsl(var(--border));
+  border-radius: var(--radius); padding: 18px 20px;
+}
+.fix-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.fix-head .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.fix-card.quick .dot { background: hsl(var(--grade-a)); }
+.fix-card.larger .dot { background: hsl(var(--sev-high)); }
+.fix-head h4 { font-size: 0.95rem; font-weight: 600; }
+.fix-effort {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  padding: 2px 8px; border-radius: 100px; letter-spacing: 0.04em;
+  background: hsl(var(--secondary)); border: 1px solid hsl(var(--border));
+  color: hsl(var(--muted-foreground));
+}
+.fix-card p { font-size: 13px; color: hsl(var(--muted-foreground)); }
+.fix-card pre {
+  margin-top: 10px; background: hsl(var(--secondary) / 0.6);
+  border: 1px solid hsl(var(--border)); border-radius: calc(var(--radius) - 2px);
+  padding: 12px; overflow-x: auto;
+}
+.fix-card pre code { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; line-height: 1.6; white-space: pre; }
+.diff-add { color: hsl(var(--grade-a)); }
+.diff-del { color: hsl(var(--grade-f)); }
+
+/* coverage panel -------------------------------------------- */
+.coverage {
+  background: hsl(var(--secondary) / 0.4); border: 1px solid hsl(var(--border));
+  border-radius: var(--radius); padding: 20px 22px;
+}
+.coverage h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 10px; }
+.coverage ul { list-style: none; display: grid; gap: 6px; }
+.coverage li { position: relative; padding-left: 16px; font-size: 13px; color: hsl(var(--muted-foreground)); }
+.coverage li::before { content: '–'; position: absolute; left: 0; color: hsl(var(--muted-foreground)); }
+.coverage .k { color: hsl(var(--foreground)); font-weight: 600; }
+
+/* footer ----------------------------------------------------- */
+.sc-footer {
+  margin-top: 48px; padding-top: 20px; border-top: 1px solid hsl(var(--border));
+  text-align: center; font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; color: hsl(var(--muted-foreground)); letter-spacing: 0.05em;
+}
+.sc-footer a { text-decoration: none; border-bottom: 1px solid hsl(var(--border)); }
+
+@media (max-width: 720px) {
+  .grade-hero { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .wrap { padding: 32px 16px 60px; }
+}

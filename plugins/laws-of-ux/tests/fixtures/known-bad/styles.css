@@ -1,0 +1,33 @@
+/* Known-bad fixture styles. Planted violations are intentional. */
+
+body { font-family: system-ui, sans-serif; margin: 0; }
+.nav { display: flex; gap: 6px; padding: 10px; flex-wrap: wrap; }
+.nav a { text-decoration: none; color: #333; }
+
+main { padding: 20px; }
+
+/* VIOLATION Fitts's Law: 24x24 icon button, zero padding, far below the ~44px touch floor. */
+.icon-btn {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.cta-row { display: flex; gap: 8px; margin: 16px 0; }
+
+/* VIOLATION Von Restorff / Law of Similarity: every button is an identical "primary", so the
+   real primary action does not stand out. */
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+}
+
+/* VIOLATION Law of Common Region / Proximity: form inputs have no grouping container and
+   uniform spacing that ignores relationships. */
+#signup { display: flex; flex-direction: column; gap: 8px; max-width: 320px; }
+#signup input { padding: 8px; border: 1px solid #ccc; }

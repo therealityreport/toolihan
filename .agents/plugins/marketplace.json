@@ -1,0 +1,176 @@
+{
+  "name": "plugins-and-skills",
+  "interface": {
+    "displayName": "Plugins & Skills"
+  },
+  "plugins": [
+    {
+      "name": "chrome-devtools",
+      "source": {
+        "source": "local",
+        "path": "./plugins/chrome-devtools"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "codex-improve",
+      "source": {
+        "source": "local",
+        "path": "./plugins/codex-improve"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "debugpro",
+      "source": {
+        "source": "local",
+        "path": "./plugins/debugpro"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "decodo",
+      "source": {
+        "source": "local",
+        "path": "./plugins/decodo"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "envato-r2",
+      "source": {
+        "source": "local",
+        "path": "./plugins/envato-r2"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "infographic-docs",
+      "source": {
+        "source": "local",
+        "path": "./plugins/infographic-docs"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "laws-of-ux",
+      "source": {
+        "source": "local",
+        "path": "./plugins/laws-of-ux"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "mcp-app-builder",
+      "source": {
+        "source": "local",
+        "path": "./plugins/mcp-app-builder"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "mermaid-png",
+      "source": {
+        "source": "local",
+        "path": "./plugins/mermaid-png"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "modal",
+      "source": {
+        "source": "local",
+        "path": "./plugins/modal"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "supabase-fullstack",
+      "source": {
+        "source": "local",
+        "path": "./plugins/supabase-fullstack"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "tool-finder",
+      "source": {
+        "source": "local",
+        "path": "./plugins/tool-finder"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "universal-debugger",
+      "source": {
+        "source": "local",
+        "path": "./plugins/universal-debugger"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "vintone-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/vintone-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

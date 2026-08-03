@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro Adjacent Sweep"
+  short_description: "Check nearby defects after an approved fix"
+  default_prompt: "Use $debugpro-adjacent-sweep to check the fixed surface for the same defect."
+policy:
+  allow_implicit_invocation: false

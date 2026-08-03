@@ -1,0 +1,21 @@
+{
+  "name": "universal-debugger",
+  "version": "0.1.0",
+  "description": "Cross-codebase debugging orchestration for routing failures, bug hunts, adjacent defect sweeps, and evidence-backed fixes.",
+  "author": {
+    "name": "The Reality Report",
+    "url": "https://github.com/thomashulihan"
+  },
+  "homepage": "https://github.com/thomashulihan/universal-debugger",
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/universal-debugger",
+  "keywords": [
+    "debugging",
+    "root-cause-analysis",
+    "triage",
+    "bug-finding",
+    "sentry",
+    "codex",
+    "skills"
+  ],
+  "license": "MIT"
+}

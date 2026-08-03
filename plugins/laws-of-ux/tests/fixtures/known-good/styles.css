@@ -1,0 +1,31 @@
+/* Known-good fixture styles. Demonstrates adherence signals. */
+
+:root { --primary: #2563eb; --border: #d4d4d8; --fg: #18181b; }
+body { font-family: system-ui, sans-serif; margin: 0; color: var(--fg); }
+
+header { display: flex; align-items: center; gap: 24px; padding: 12px 20px; border-bottom: 1px solid var(--border); }
+.logo { font-weight: 700; text-decoration: none; color: var(--fg); }
+.nav { display: flex; gap: 16px; align-items: center; }
+.nav a { text-decoration: none; color: var(--fg); }
+
+main { padding: 24px; max-width: 640px; }
+
+/* ADHERENCE Fitts's Law: comfortable ≥44px touch targets. */
+.btn {
+  min-height: 44px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font: inherit;
+  cursor: pointer;
+}
+/* ADHERENCE Von Restorff: one filled primary, secondary is outline — clear emphasis. */
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-outline { background: #fff; border-color: var(--border); color: var(--fg); }
+.cta-row { display: flex; gap: 12px; margin: 20px 0; }
+
+/* ADHERENCE Common Region/Proximity: grouped fieldsets, related fields together. */
+#signup fieldset { border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; margin: 0 0 16px; }
+#signup legend { font-weight: 600; padding: 0 6px; }
+#signup label { display: block; margin: 10px 0; }
+#signup input { display: block; width: 100%; min-height: 44px; padding: 10px; margin-top: 4px; border: 1px solid var(--border); border-radius: 6px; box-sizing: border-box; }

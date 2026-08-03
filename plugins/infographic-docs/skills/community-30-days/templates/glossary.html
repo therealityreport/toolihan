@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{DOC_TITLE}} - Glossary</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    :root { --primary: 221 83% 53%; --ring: 221 83% 53%; }
+  </style>
+</head>
+<body>
+<div class="tab-bar">
+  <a href="index.html" class="tab-bar-logo"><span class="logo-mark">{{DOC_MARK}}</span> {{DOC_TITLE}}</a>
+  <a href="index.html" class="tab-btn"><span class="tab-icon">01</span> Overview</a>
+  <a href="signal-map.html" class="tab-btn"><span class="tab-icon">02</span> Signal Map</a>
+  <a href="source-detail.html" class="tab-btn"><span class="tab-icon">03</span> Sources</a>
+  <a href="github.html" class="tab-btn"><span class="tab-icon">04</span> GitHub</a>
+  <a href="glossary.html" class="tab-btn active"><span class="tab-icon">05</span> Glossary</a>
+  <a href="sources.html" class="tab-btn"><span class="tab-icon">06</span> Links</a>
+</div>
+<main style="padding-top:56px;">
+  <div class="doc-page">
+    <div class="doc-hero">
+      <h1>Glossary</h1>
+      <p>Plain-English definitions for terms used in this report.</p>
+    </div>
+    <div class="glossary-list">
+      <div class="glossary-term" id="{{TERM_1_ID}}"><h3>{{TERM_1}}</h3><p>{{TERM_1_DEF}}</p><span class="gt-seen">{{TERM_1_SEEN}}</span></div>
+      <div class="glossary-term" id="{{TERM_2_ID}}"><h3>{{TERM_2}}</h3><p>{{TERM_2_DEF}}</p><span class="gt-seen">{{TERM_2_SEEN}}</span></div>
+      <div class="glossary-term" id="{{TERM_3_ID}}"><h3>{{TERM_3}}</h3><p>{{TERM_3_DEF}}</p><span class="gt-seen">{{TERM_3_SEEN}}</span></div>
+    </div>
+    <div class="page-pagination">
+      <a href="github.html">Previous: GitHub / Builder Signal</a>
+      <a href="sources.html">Next: Sources</a>
+    </div>
+    <div class="footer-bar"><p>{{DOC_TITLE}} - {{DATE_WINDOW}} - MADE WITH {{MODEL_NAME}}</p></div>
+  </div>
+</main>
+</body>
+</html>

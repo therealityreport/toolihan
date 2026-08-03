@@ -1,0 +1,38 @@
+{
+  "name": "supabase-fullstack",
+  "owner": {
+    "name": "Thomas Hulihan"
+  },
+  "metadata": {
+    "description": "Unified Supabase plugin for routing live Supabase access through the official connector plus security, auth, storage, migrations, and Postgres performance guidance.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "supabase-fullstack",
+      "source": "./",
+      "description": "Unified Supabase plugin for routing live Supabase access through the official connector plus security, auth, storage, migrations, and Postgres performance guidance.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Thomas Hulihan"
+      },
+      "license": "MIT",
+      "keywords": [
+        "supabase",
+        "postgres",
+        "rls",
+        "auth",
+        "storage",
+        "performance",
+        "migrations"
+      ],
+      "category": "development",
+      "skills": [
+        "./skills/supabase-command-surface",
+        "./skills/supabase-fullstack-review",
+        "./skills/supabase-security-governance",
+        "./skills/supabase-postgres-performance"
+      ]
+    }
+  ]
+}

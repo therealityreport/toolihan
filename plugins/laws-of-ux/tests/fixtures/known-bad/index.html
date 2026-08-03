@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Known-bad fixture</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- VIOLATION Hick's Law: 14 flat, ungrouped top-level nav items -->
+  <nav class="nav">
+    <a href="#">Home</a><a href="#">Products</a><a href="#">Services</a><a href="#">Pricing</a>
+    <a href="#">Blog</a><a href="#">Docs</a><a href="#">API</a><a href="#">Community</a>
+    <a href="#">Partners</a><a href="#">Careers</a><a href="#">About</a><a href="#">Press</a>
+    <a href="#">Contact</a><a href="#">Legal</a>
+  </nav>
+
+  <main>
+    <!-- VIOLATION Fitts's Law: 24px icon-only button, no padding -->
+    <button class="icon-btn" aria-label="settings"><svg width="12" height="12"></svg></button>
+
+    <!-- VIOLATION Von Restorff: two competing primary buttons in one view -->
+    <div class="cta-row">
+      <button class="btn-primary">Buy now</button>
+      <button class="btn-primary">Start free trial</button>
+    </div>
+
+    <!-- VIOLATION Postel's + Miller's: strict email, no autocomplete, ungrouped long form -->
+    <form id="signup" novalidate>
+      <input name="first" placeholder="First name">
+      <input name="last" placeholder="Last name">
+      <input name="email" placeholder="Email">
+      <input name="phone" placeholder="Phone">
+      <input name="company" placeholder="Company">
+      <input name="title" placeholder="Title">
+      <input name="street" placeholder="Street">
+      <input name="city" placeholder="City">
+      <input name="zip" placeholder="ZIP">
+      <button class="btn-primary" type="submit">Submit</button>
+    </form>
+
+    <div id="results"></div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

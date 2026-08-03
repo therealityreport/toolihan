@@ -1,0 +1,10 @@
+erDiagram
+  PERSON ||--o{ ORDER : places
+  PERSON {
+    string id
+    string? middleName
+    `decimal(10,2)?` `credit-limit`
+  }
+  ORDER {
+    string id
+  }

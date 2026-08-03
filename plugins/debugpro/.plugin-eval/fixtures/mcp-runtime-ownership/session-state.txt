@@ -1,0 +1,4 @@
+configured server: payments
+launched command: /opt/payments-v1/server
+exposed tools: payments__refund
+expected tool: payments__charge

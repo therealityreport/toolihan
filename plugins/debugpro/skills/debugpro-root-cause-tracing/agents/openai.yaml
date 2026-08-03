@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro Root Cause Tracing"
+  short_description: "Trace a symptom to the earliest proven cause"
+  default_prompt: "Use $debugpro-root-cause-tracing to trace this symptom to its earliest proven cause."
+policy:
+  allow_implicit_invocation: false

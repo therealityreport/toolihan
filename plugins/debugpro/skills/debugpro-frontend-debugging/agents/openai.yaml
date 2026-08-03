@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro Frontend Debugging"
+  short_description: "Trace rendering, routing, state, and asset failures"
+  default_prompt: "Use $debugpro-frontend-debugging to trace this frontend failure through browser and source evidence."
+policy:
+  allow_implicit_invocation: false

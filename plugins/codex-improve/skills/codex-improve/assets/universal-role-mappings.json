@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "catalog": {
+    "id": "codex-universal-subagent-roles",
+    "schemaVersion": 1,
+    "relativePath": "skills/subagent-routing/references/universal-role-catalog.json",
+    "healthCheck": "skills/subagent-routing/scripts/sync-universal-roles.py --check --json"
+  },
+  "lunaGate": {
+    "model": "gpt-5.6-luna",
+    "statusPath": "runtime.gatedModels.gpt-5.6-luna.status",
+    "allowedStatuses": [
+      "proven"
+    ],
+    "whenUnavailable": "Return BLOCKED for explicit reassignment. Do not generate a project-local agent or silently substitute another model."
+  },
+  "legacyMappings": [
+    {
+      "legacyResponsibility": "Workflow lead",
+      "owner": "parent task",
+      "universalRoles": []
+    },
+    {
+      "legacyResponsibility": "Recon mapping",
+      "owner": "child",
+      "universalRoles": [
+        "repository_mapper"
+      ]
+    },
+    {
+      "legacyResponsibility": "Bulk audit",
+      "owner": "parallel children with non-overlapping scopes",
+      "universalRoles": [
+        "exact_locator"
+      ]
+    },
+    {
+      "legacyResponsibility": "Specialist audit",
+      "owner": "child",
+      "universalRoles": [
+        "deep_debugger",
+        "risk_owner"
+      ]
+    },
+    {
+      "legacyResponsibility": "Evidence and plan review",
+      "owner": "independent child",
+      "universalRoles": [
+        "adversarial_reviewer"
+      ]
+    },
+    {
+      "legacyResponsibility": "Plan authoring",
+      "owner": "child; Plan Architect remains its named narrower exception",
+      "universalRoles": [
+        "senior_scout"
+      ]
+    },
+    {
+      "legacyResponsibility": "Execution",
+      "owner": "child selected to fit the approved boundary",
+      "universalRoles": [
+        "bounded_fixer",
+        "feature_implementer",
+        "large_implementer"
+      ]
+    },
+    {
+      "legacyResponsibility": "Risky execution",
+      "owner": "high-consequence child",
+      "universalRoles": [
+        "risk_owner"
+      ]
+    },
+    {
+      "legacyResponsibility": "Final critical judgment",
+      "owner": "child prepares evidence; parent retains final acceptance",
+      "universalRoles": [
+        "acceptance_integrator"
+      ]
+    }
+  ],
+  "mappings": [
+    {
+      "responsibility": "scope_and_triage",
+      "universalRoles": [
+        "senior_scout",
+        "risk_owner"
+      ],
+      "selection": "Use senior_scout for ordinary scope and planning triage. Use risk_owner when the request is high consequence."
+    },
+    {
+      "responsibility": "recon_and_architecture_mapping",
+      "universalRoles": [
+        "repository_mapper",
+        "exact_locator"
+      ],
+      "selection": "Use repository_mapper for bounded repository maps and exact_locator for targeted proof."
+    },
+    {
+      "responsibility": "bounded_audit_and_evidence_collection",
+      "universalRoles": [
+        "exact_locator",
+        "repository_mapper"
+      ],
+      "selection": "Partition audit evidence into exact, non-overlapping scopes before dispatch."
+    },
+    {
+      "responsibility": "specialist_investigation",
+      "universalRoles": [
+        "deep_debugger",
+        "risk_owner"
+      ],
+      "selection": "Use deep_debugger for coupled technical analysis and risk_owner for high-consequence lanes."
+    },
+    {
+      "responsibility": "plan_authoring_and_migration_design",
+      "universalRoles": [
+        "senior_scout",
+        "risk_owner"
+      ],
+      "selection": "Use senior_scout for ordinary plans and risk_owner for critical or migration plans."
+    },
+    {
+      "responsibility": "evidence_judgment_and_plan_critique",
+      "universalRoles": [
+        "adversarial_reviewer",
+        "implementation_reviewer"
+      ],
+      "selection": "Use a reviewer independent of the author or implementer."
+    },
+    {
+      "responsibility": "approved_plan_execution",
+      "universalRoles": [
+        "feature_implementer",
+        "large_implementer"
+      ],
+      "selection": "Use feature_implementer for routine bounded changes and large_implementer for large or terminal-heavy refactors."
+    },
+    {
+      "responsibility": "mechanical_follow_up",
+      "universalRoles": [
+        "mechanical_editor",
+        "bounded_fixer"
+      ],
+      "selection": "Use mechanical_editor for predictable transformations and bounded_fixer for a narrow evidence-backed repair."
+    },
+    {
+      "responsibility": "final_acceptance_and_recovery",
+      "universalRoles": [
+        "acceptance_integrator",
+        "recovery_lead"
+      ],
+      "selection": "Use acceptance_integrator for final readiness and recovery_lead only after ordinary routes fail."
+    }
+  ]
+}

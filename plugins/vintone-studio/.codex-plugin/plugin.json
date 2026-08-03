@@ -1,0 +1,46 @@
+{
+  "name": "vintone-studio",
+  "version": "0.1.0",
+  "description": "Codex planning and runbook plugin for safe VINTONE Photoshop editing workflows.",
+  "author": {
+    "name": "The Reality Report",
+    "url": "https://github.com/therealityreport"
+  },
+  "homepage": "https://www.instagram.com/vintonedesigns/",
+  "license": "MIT",
+  "keywords": [
+    "vintone",
+    "photoshop",
+    "computer-use",
+    "design-planning",
+    "screen-printing",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "VINTONE Studio",
+    "shortDescription": "Plan copy-first VINTONE edits and Photoshop Computer Use runbooks.",
+    "longDescription": "Local Codex plugin for VINTONE design planning. It keeps paid VINTONE files external, creates safe edit packets, and produces copy-first Photoshop runbooks for Codex sessions that have Computer Use available.",
+    "developerName": "The Reality Report",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://www.instagram.com/vintonedesigns/",
+    "privacyPolicyURL": "https://github.com/therealityreport/plugins-and-skills/blob/main/plugins/vintone-studio/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/therealityreport/plugins-and-skills/blob/main/plugins/vintone-studio/TERMS.md",
+    "defaultPrompt": [
+      "Use VINTONE Studio to check setup.",
+      "Create a VINTONE design plan for this idea.",
+      "Create a copy-first Photoshop runbook for this VINTONE edit."
+    ],
+    "brandColor": "#C84A31",
+    "composerIcon": "./assets/app-icon.svg",
+    "logo": "./assets/app-icon.svg",
+    "screenshots": []
+  },
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/vintone-studio"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "mcp-app-builder",
+  "version": "0.2.0+codex.202606302025",
+  "description": "Create, package, connect, and verify ready-to-use MCP Apps for Codex plugins.",
+  "author": {
+    "name": "Thomas Hulihan"
+  },
+  "keywords": [
+    "mcp",
+    "apps-sdk",
+    "chatgpt-apps",
+    "scaffold",
+    "developer-tools"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/mcp-app-builder",
+  "homepage": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/mcp-app-builder"
+}

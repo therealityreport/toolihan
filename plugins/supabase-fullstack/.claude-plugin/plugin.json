@@ -1,0 +1,23 @@
+{
+  "name": "supabase-fullstack",
+  "version": "1.0.0",
+  "description": "Connector-aware Supabase command surface for live project access, SQL, migrations, advisors, logs, branches, Edge Functions, RLS, Auth, Storage, Postgres performance, and local project conventions.",
+  "author": {
+    "name": "Thomas Hulihan"
+  },
+  "license": "MIT",
+  "keywords": [
+    "supabase",
+    "postgres",
+    "rls",
+    "auth",
+    "storage",
+    "performance",
+    "migrations",
+    "marketplace",
+    "server",
+    "studio"
+  ],
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/supabase-fullstack",
+  "homepage": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/supabase-fullstack"
+}

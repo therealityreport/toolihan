@@ -1,0 +1,11 @@
+%%{init: {"architecture": {"seed": 42}}}%%
+architecture-beta
+  service source_a(server)[Source A]
+  service source_b(server)[Source B]
+  service processor(server)[Processor]
+  service delivery(cloud)[Delivery]
+
+  source_a:B --> T:processor
+  source_b:B --> T:processor
+  processor:R --> L:delivery
+  align row source_a source_b

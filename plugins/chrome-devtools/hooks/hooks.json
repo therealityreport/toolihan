@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"@ChromeDevTools: startup drift check is available for install/cache/marketplace sync state.\""
+          },
+          {
+            "type": "command",
+            "command": "sh -lc 'root=\"${CODEX_PLUGIN_ROOT:-${CLAUDE_PLUGIN_ROOT:-}}\"; [ -z \"$root\" ] || node \"$root/scripts/codex-startup-check.mjs\"'"
+          }
+        ]
+      }
+    ]
+  }
+}

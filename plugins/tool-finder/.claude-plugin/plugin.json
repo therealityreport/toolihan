@@ -1,0 +1,23 @@
+{
+  "name": "tool-finder",
+  "version": "0.1.0",
+  "description": "Find, compare, improve, self-check, and plan installation for agent tools across callable Codex tools, connector plugins, local inventory, live GitHub, Hugging Face, skills.sh, npm, Python, Homebrew, and deferred package registries.",
+  "author": {
+    "name": "Thomas Hulihan"
+  },
+  "keywords": [
+    "tools",
+    "skills",
+    "plugins",
+    "mcp",
+    "connectors",
+    "agents",
+    "cli",
+    "github",
+    "hugging-face",
+    "skills.sh"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/tool-finder",
+  "homepage": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/tool-finder"
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro Team"
+  short_description: "Coordinate independent debugging tracks safely"
+  default_prompt: "Use $debugpro-team to coordinate independent read-only debugging tracks."
+policy:
+  allow_implicit_invocation: false

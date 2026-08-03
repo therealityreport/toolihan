@@ -1,0 +1,6 @@
+railroad-beta
+title Identifier grammar
+
+identifier = sequence(nonterminal("letter"), zeroOrMore(choice(nonterminal("letter"), nonterminal("digit")))) ;
+letter = choice(terminal("a"), terminal("b"), terminal("_")) ;
+digit = choice(terminal("0"), terminal("1")) ;

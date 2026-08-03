@@ -1,0 +1,19 @@
+{
+  "name": "decodo",
+  "version": "0.1.0+codex.20260529004411",
+  "description": "Decodo scraping, proxy, MCP, and SDK workflows for Codex.",
+  "author": {
+    "name": "Thomas Hulihan"
+  },
+  "keywords": [
+    "decodo",
+    "scraping",
+    "proxy",
+    "serp",
+    "browser",
+    "codex"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/decodo",
+  "homepage": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/decodo"
+}

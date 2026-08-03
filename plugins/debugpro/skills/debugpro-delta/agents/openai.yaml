@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro Delta"
+  short_description: "Reduce failures to the smallest reproducible case"
+  default_prompt: "Use $debugpro-delta to reduce this failure to the smallest reproducible case."
+policy:
+  allow_implicit_invocation: false

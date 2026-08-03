@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro macOS Debugging"
+  short_description: "Trace macOS build, signing, launch, and runtime failures"
+  default_prompt: "Use $debugpro-macos-debugging to trace this macOS failure across build and runtime evidence."
+policy:
+  allow_implicit_invocation: false

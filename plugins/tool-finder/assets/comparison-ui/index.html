@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tool Finder Compare</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f2;
+      --panel: #ffffff;
+      --ink: #24221f;
+      --muted: #666057;
+      --line: #d8d2c8;
+      --strong: #16744a;
+      --usable: #2f6f9f;
+      --reference: #8a5b16;
+      --reject: #9b332d;
+      --accent: #b34d2e;
+      --focus: #0f7c7c;
+      --shadow: 0 10px 24px rgba(38, 34, 28, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 14px/1.45 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    button,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    input:focus-visible {
+      outline: 3px solid rgba(15, 124, 124, 0.24);
+      outline-offset: 2px;
+    }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfaf6;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .header-meta {
+      display: flex;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(260px, 1fr) auto;
+      gap: 16px;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .input-block {
+      display: grid;
+      gap: 8px;
+    }
+
+    label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      color: var(--ink);
+      background: #fffefa;
+    }
+
+    .controls {
+      display: grid;
+      align-content: end;
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
+      gap: 10px;
+      min-width: 330px;
+    }
+
+    select,
+    .text-input {
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 10px;
+      color: var(--ink);
+      background: #fffefa;
+    }
+
+    button {
+      min-height: 38px;
+      border: 1px solid #2e5e55;
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: #ffffff;
+      background: #2e5e55;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      border-color: var(--line);
+      color: var(--ink);
+      background: #f6efe7;
+    }
+
+    button:hover {
+      filter: brightness(0.96);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 390px;
+      gap: 20px;
+      padding: 20px 24px 28px;
+    }
+
+    .summary-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 2px 9px;
+      background: #fffefa;
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .coverage-card {
+      display: grid;
+      gap: 3px;
+      min-height: 74px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--usable);
+      border-radius: 8px;
+      padding: 9px 10px;
+      background: #fffefa;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .coverage-card.skipped,
+    .coverage-card.deferred {
+      border-left-color: var(--reference);
+    }
+
+    .coverage-card.error {
+      border-left-color: var(--reject);
+    }
+
+    .coverage-name {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .coverage-reason {
+      overflow-wrap: anywhere;
+    }
+
+    .results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      display: grid;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .card-head {
+      display: grid;
+      grid-template-columns: 22px 1fr auto;
+      gap: 10px;
+      align-items: start;
+      min-width: 0;
+    }
+
+    .card h2 {
+      margin: 0;
+      overflow-wrap: anywhere;
+      font-size: 15px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .score {
+      min-width: 54px;
+      border-radius: 8px;
+      padding: 4px 7px;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .score.strong { background: var(--strong); }
+    .score.usable { background: var(--usable); }
+    .score.reference { background: var(--reference); }
+    .score.reject { background: var(--reject); }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .meta-grid span {
+      overflow-wrap: anywhere;
+    }
+
+    .reason-list {
+      margin: 0;
+      padding-left: 18px;
+      color: #3e3933;
+    }
+
+    .reason-list li + li {
+      margin-top: 4px;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    a {
+      color: #0b6680;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      overflow-wrap: anywhere;
+    }
+
+    aside {
+      position: sticky;
+      top: 18px;
+      align-self: start;
+      display: grid;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fffefa;
+      box-shadow: var(--shadow);
+    }
+
+    aside h2 {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 12px;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 8px 6px;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+    }
+
+    th {
+      width: 34%;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .empty {
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      color: var(--muted);
+      background: rgba(255, 254, 250, 0.7);
+    }
+
+    .error {
+      color: var(--reject);
+      font-weight: 700;
+    }
+
+    @media (max-width: 980px) {
+      .toolbar,
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .controls {
+        min-width: 0;
+      }
+
+      aside {
+        position: static;
+      }
+    }
+
+    @media (max-width: 560px) {
+      header {
+        display: grid;
+        padding: 16px;
+      }
+
+      .toolbar,
+      main {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .controls {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Tool Finder Compare</h1>
+      <div class="header-meta">
+        <span id="source-count">0 sources</span>
+        <span id="selected-count">0 selected</span>
+      </div>
+    </header>
+
+    <section class="toolbar" aria-label="Controls">
+      <div class="input-block">
+        <label for="json-input">Tool Finder JSON</label>
+        <textarea id="json-input" spellcheck="false" placeholder='{"results":[...]}'></textarea>
+      </div>
+      <div class="controls">
+        <select id="bucket-filter" aria-label="Bucket">
+          <option value="">All buckets</option>
+          <option value="strong">Strong</option>
+          <option value="usable">Usable</option>
+          <option value="reference">Reference</option>
+          <option value="reject">Reject</option>
+        </select>
+        <select id="type-filter" aria-label="Type">
+          <option value="">All types</option>
+        </select>
+        <select id="source-filter" aria-label="Source">
+          <option value="">All sources</option>
+        </select>
+        <select id="provider-source-filter" aria-label="Provider source">
+          <option value="">All provider sources</option>
+        </select>
+        <select id="provider-filter" aria-label="Provider">
+          <option value="">All providers</option>
+        </select>
+        <select id="provider-state-filter" aria-label="Provider state">
+          <option value="">All provider states</option>
+        </select>
+        <select id="sort-order" aria-label="Sort">
+          <option value="score-desc">Score high to low</option>
+          <option value="score-asc">Score low to high</option>
+          <option value="name-asc">Name A to Z</option>
+          <option value="source-asc">Source A to Z</option>
+        </select>
+        <button id="load-json" type="button">Load</button>
+        <button id="load-sample" class="secondary" type="button">Sample</button>
+        <button id="clear-selection" class="secondary" type="button">Clear Selected</button>
+        <button id="copy-markdown" type="button">Copy Markdown</button>
+      </div>
+    </section>
+
+    <main>
+      <section>
+        <div class="summary-row" id="summary-row"></div>
+        <div class="coverage-grid" id="provider-coverage"></div>
+        <div class="results" id="results"></div>
+      </section>
+      <aside>
+        <h2>Selected Comparison</h2>
+        <div id="comparison"></div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    const samplePayload = {
+      providerStatus: [
+        { provider: "runtime", variant: "catalog", state: "queried", searched: true, skipped: false, reason: "Runtime catalog was available.", resultCount: 1 },
+        { provider: "npm", variant: "search", state: "queried", searched: true, skipped: false, reason: "npm provider completed.", resultCount: 1 },
+        { provider: "skills.sh", variant: "search", state: "skipped", searched: false, skipped: true, requiresAuth: true, reason: "No Vercel OIDC token available.", resultCount: 0 }
+      ],
+      results: [
+        {
+          id: "runtime:tool_search",
+          name: "tool_search",
+          assetType: "connector",
+          source: "runtime",
+          providerSource: "runtime-catalog",
+          score: 90,
+          bucket: "strong",
+          recommendedAction: "use-now",
+          reasons: ["Callable in the current Codex session.", "Finds installed and deferred tools."],
+          install: { status: "already-available", command: null },
+          safety: { notes: [] },
+          providerStatus: { provider: "runtime", variant: "catalog", state: "queried", searched: true, skipped: false, reason: "Runtime catalog was available.", resultCount: 1 },
+          location: { url: null, repo: null, path: null, localPath: null }
+        },
+        {
+          id: "npm:@modelcontextprotocol/server-filesystem",
+          name: "@modelcontextprotocol/server-filesystem",
+          assetType: "mcp",
+          source: "npm",
+          providerSource: "package-registry",
+          score: 70,
+          bucket: "usable",
+          recommendedAction: "dry-run-install-plan",
+          reasons: ["Registry package matched MCP search terms.", "Install remains dry-run."],
+          install: { status: "installable", command: "npm install -g @modelcontextprotocol/server-filesystem" },
+          safety: { notes: ["Inspect install scripts before installing globally."] },
+          providerStatus: { provider: "npm", variant: "search", state: "queried", searched: true, skipped: false, reason: "npm provider completed.", resultCount: 1 },
+          location: { url: "https://www.npmjs.com/package/@modelcontextprotocol/server-filesystem", repo: null, path: null, localPath: null }
+        }
+      ]
+    };
+
+    const state = {
+      items: [],
+      selected: new Set(),
+      providerStatus: [],
+      counts: {}
+    };
+
+    const elements = {
+      input: document.querySelector("#json-input"),
+      loadJson: document.querySelector("#load-json"),
+      loadSample: document.querySelector("#load-sample"),
+      clearSelection: document.querySelector("#clear-selection"),
+      copyMarkdown: document.querySelector("#copy-markdown"),
+      bucketFilter: document.querySelector("#bucket-filter"),
+      typeFilter: document.querySelector("#type-filter"),
+      sourceFilter: document.querySelector("#source-filter"),
+      providerSourceFilter: document.querySelector("#provider-source-filter"),
+      providerFilter: document.querySelector("#provider-filter"),
+      providerStateFilter: document.querySelector("#provider-state-filter"),
+      sortOrder: document.querySelector("#sort-order"),
+      results: document.querySelector("#results"),
+      comparison: document.querySelector("#comparison"),
+      summary: document.querySelector("#summary-row"),
+      providerCoverage: document.querySelector("#provider-coverage"),
+      sourceCount: document.querySelector("#source-count"),
+      selectedCount: document.querySelector("#selected-count")
+    };
+
+    function asResults(payload) {
+      if (Array.isArray(payload)) return payload;
+      if (payload && Array.isArray(payload.results)) return payload.results;
+      if (payload && payload.bestOverall && Array.isArray(payload.results)) return payload.results;
+      throw new Error("Expected a JSON array or an object with a results array.");
+    }
+
+    function safeText(value, fallback = "") {
+      if (value === null || value === undefined || value === "") return fallback;
+      if (Array.isArray(value)) return value.join(", ");
+      return String(value);
+    }
+
+    function loadPayload(payload) {
+      state.items = asResults(payload).map((item, index) => ({
+        id: item.id || `${item.source || "unknown"}:${item.name || index}`,
+        ...item
+      }));
+      state.providerStatus = normalizeProviderStatus(payload);
+      state.counts = payload && payload.counts ? payload.counts : {};
+      state.selected.clear();
+      refreshFilters();
+      render();
+    }
+
+    function normalizeProviderStatus(payload) {
+      if (payload && Array.isArray(payload.providerStatus)) return payload.providerStatus;
+      const seen = new Map();
+      asResults(payload).forEach((item) => {
+        const status = item.providerStatus || {
+          provider: item.source || "unknown",
+          state: "unknown",
+          searched: false,
+          skipped: false,
+          reason: "Provider status was not supplied."
+        };
+        const key = `${status.provider || item.source || "unknown"}:${status.variant || ""}:${status.state || "unknown"}`;
+        if (!seen.has(key)) {
+          seen.set(key, { ...status, resultCount: 0 });
+        }
+        seen.get(key).resultCount += 1;
+      });
+      return [...seen.values()];
+    }
+
+    function refreshFilters() {
+      fillSelect(elements.typeFilter, "All types", uniqueValues("assetType"));
+      fillSelect(elements.sourceFilter, "All sources", uniqueValues("source"));
+      fillSelect(elements.providerSourceFilter, "All provider sources", uniqueValues("providerSource"));
+      fillSelect(elements.providerFilter, "All providers", providerValues("provider"));
+      fillSelect(elements.providerStateFilter, "All provider states", providerValues("state"));
+    }
+
+    function uniqueValues(field) {
+      return [...new Set(state.items.map((item) => item[field]).filter(Boolean))].sort();
+    }
+
+    function fillSelect(select, label, values) {
+      const current = select.value;
+      select.innerHTML = "";
+      select.append(new Option(label, ""));
+      values.forEach((value) => select.append(new Option(value, value)));
+      select.value = values.includes(current) ? current : "";
+    }
+
+    function providerEntriesForItem(item) {
+      const provider = item.providerStatus || {};
+      const entries = [];
+      if (provider.provider || item.source) {
+        entries.push({
+          provider: provider.provider || item.source,
+          variant: provider.variant || "",
+          state: provider.state || "unknown"
+        });
+      }
+      (provider.additionalProviders || item.providerVariants || []).forEach((entry) => {
+        if (!entry) return;
+        entries.push({
+          provider: entry.provider || entry.source || "unknown",
+          variant: entry.variant || "",
+          state: entry.state || provider.state || "unknown"
+        });
+      });
+      return entries;
+    }
+
+    function providerValues(field) {
+      const values = new Set();
+      state.providerStatus.forEach((status) => {
+        if (field === "provider" && status.provider) values.add(status.provider);
+        if (field === "state" && status.state) values.add(status.state);
+      });
+      state.items.forEach((item) => {
+        providerEntriesForItem(item).forEach((entry) => {
+          if (field === "provider" && entry.provider) values.add(entry.provider);
+          if (field === "state" && entry.state) values.add(entry.state);
+        });
+      });
+      return [...values].sort();
+    }
+
+    function itemMatchesProviderFilters(item) {
+      const provider = elements.providerFilter.value;
+      const stateName = elements.providerStateFilter.value;
+      if (!provider && !stateName) return true;
+      return providerEntriesForItem(item).some((entry) => {
+        return (!provider || entry.provider === provider) && (!stateName || entry.state === stateName);
+      });
+    }
+
+    function filteredItems() {
+      const bucket = elements.bucketFilter.value;
+      const type = elements.typeFilter.value;
+      const source = elements.sourceFilter.value;
+      const providerSource = elements.providerSourceFilter.value;
+      const order = elements.sortOrder.value;
+      return state.items
+        .filter((item) => !bucket || item.bucket === bucket)
+        .filter((item) => !type || item.assetType === type)
+        .filter((item) => !source || item.source === source)
+        .filter((item) => !providerSource || item.providerSource === providerSource)
+        .filter(itemMatchesProviderFilters)
+        .sort((a, b) => {
+          if (order === "score-asc") return Number(a.score || 0) - Number(b.score || 0);
+          if (order === "name-asc") return safeText(a.name).localeCompare(safeText(b.name));
+          if (order === "source-asc") return safeText(a.source).localeCompare(safeText(b.source));
+          return Number(b.score || 0) - Number(a.score || 0);
+        });
+    }
+
+    function render() {
+      const items = filteredItems();
+      renderSummary(items);
+      renderProviderCoverage();
+      elements.results.innerHTML = items.length ? "" : '<div class="empty">No matching results.</div>';
+      items.forEach((item) => elements.results.append(renderCard(item)));
+      renderComparison();
+      elements.sourceCount.textContent = `${uniqueValues("source").length} sources`;
+      elements.selectedCount.textContent = `${state.selected.size} selected`;
+    }
+
+    function renderSummary(items) {
+      const buckets = ["strong", "usable", "reference", "reject"].map((bucket) => {
+        const count = items.filter((item) => item.bucket === bucket).length;
+        return `<span class="pill">${bucket}: ${count}</span>`;
+      });
+      const skipped = state.providerStatus.filter((status) => status.skipped).length;
+      const queried = state.providerStatus.filter((status) => status.searched).length;
+      const deduped = Number(state.counts.deduplicatedResults || 0);
+      elements.summary.innerHTML = [
+        `<span class="pill">${items.length} visible</span>`,
+        `<span class="pill">${state.items.length} loaded</span>`,
+        state.counts.rawResults ? `<span class="pill">${state.counts.rawResults} raw</span>` : "",
+        deduped ? `<span class="pill">${deduped} merged</span>` : "",
+        `<span class="pill">${queried} providers queried</span>`,
+        skipped ? `<span class="pill">${skipped} providers skipped</span>` : "",
+        ...buckets
+      ].filter(Boolean).join("");
+    }
+
+    function renderProviderCoverage() {
+      const provider = elements.providerFilter.value;
+      const stateNameFilter = elements.providerStateFilter.value;
+      const statuses = state.providerStatus.filter((status) => {
+        return (!provider || status.provider === provider) && (!stateNameFilter || status.state === stateNameFilter);
+      });
+      if (!statuses.length) {
+        elements.providerCoverage.innerHTML = "";
+        return;
+      }
+      elements.providerCoverage.innerHTML = statuses.map((status) => {
+        const stateName = safeText(status.state, status.skipped ? "skipped" : "unknown");
+        const variant = status.variant ? `:${status.variant}` : "";
+        const reason = safeText(status.reason, status.searched ? "Provider queried." : "Provider not queried.");
+        const count = status.resultCount === null || status.resultCount === undefined ? "n/a" : status.resultCount;
+        return `
+          <div class="coverage-card ${escapeAttr(stateName)}">
+            <div class="coverage-name">${escapeHtml(status.provider || "unknown")}${escapeHtml(variant)}</div>
+            <div>${escapeHtml(stateName)} · ${escapeHtml(count)} result${String(count) === "1" ? "" : "s"}</div>
+            <div class="coverage-reason">${escapeHtml(reason)}</div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderCard(item) {
+      const card = document.createElement("article");
+      card.className = "card";
+      const checked = state.selected.has(item.id) ? "checked" : "";
+      const scoreClass = item.bucket || "reference";
+      const reasons = (item.reasons || []).slice(0, 3).map((reason) => `<li>${escapeHtml(reason)}</li>`).join("");
+      const location = item.location || {};
+      const install = item.install || {};
+      const provider = item.providerStatus || {};
+      const providerName = provider.provider || item.source || "unknown";
+      const providerState = provider.state || "unknown";
+      const providerVariant = provider.variant ? `:${provider.variant}` : "";
+      const additionalProviders = (provider.additionalProviders || item.providerVariants || [])
+        .filter((entry) => entry)
+        .map((entry) => `${entry.provider || entry.source || "unknown"}${entry.variant ? `:${entry.variant}` : ""}`)
+        .filter((value, index, values) => values.indexOf(value) === index)
+        .join(", ");
+      const url = location.url || install.installUrl;
+      card.innerHTML = `
+        <div class="card-head">
+          <input type="checkbox" ${checked} aria-label="Select ${escapeHtml(item.name || item.id)}">
+          <h2>${escapeHtml(item.name || "Unnamed tool")}</h2>
+          <span class="score ${escapeHtml(scoreClass)}">${Number(item.score || 0)}</span>
+        </div>
+        <div class="meta-grid">
+          <span>Type: ${escapeHtml(item.assetType || "unknown")}</span>
+          <span>Source: ${escapeHtml(item.source || "unknown")}</span>
+          <span>Provider source: ${escapeHtml(item.providerSource || "unknown")}</span>
+          <span>Provider: ${escapeHtml(providerName + providerVariant)} (${escapeHtml(providerState)})</span>
+          <span>Bucket: ${escapeHtml(item.bucket || "reference")}</span>
+          <span>Status: ${escapeHtml(install.status || "unknown")}</span>
+          <span>Action: ${escapeHtml(item.recommendedAction || "reference-only")}</span>
+          <span>Repo: ${escapeHtml(location.repo || "none")}</span>
+          <span>Also: ${escapeHtml(additionalProviders || "none")}</span>
+        </div>
+        <ul class="reason-list">${reasons || "<li>No match reason recorded.</li>"}</ul>
+        <div class="link-row">
+          ${url ? `<a href="${escapeAttr(url)}" target="_blank" rel="noreferrer">Open</a>` : ""}
+          ${install.command ? `<span class="pill">${escapeHtml(install.command)}</span>` : ""}
+        </div>
+      `;
+      card.querySelector("input").addEventListener("change", (event) => {
+        if (event.target.checked) {
+          state.selected.add(item.id);
+        } else {
+          state.selected.delete(item.id);
+        }
+        renderComparison();
+        elements.selectedCount.textContent = `${state.selected.size} selected`;
+      });
+      return card;
+    }
+
+    function renderComparison() {
+      const selected = state.items.filter((item) => state.selected.has(item.id));
+      if (!selected.length) {
+        elements.comparison.innerHTML = '<div class="empty">Select candidates to compare.</div>';
+        return;
+      }
+      const rows = [
+        ["Name", (item) => item.name],
+        ["Score", (item) => item.score],
+        ["Type", (item) => item.assetType],
+        ["Source", (item) => item.source],
+        ["Provider source", (item) => item.providerSource],
+        ["Provider", (item) => providerLabel(item)],
+        ["Coverage", (item) => providerCoverageLabel(item)],
+        ["Bucket", (item) => item.bucket],
+        ["Action", (item) => item.recommendedAction],
+        ["Install", (item) => (item.install || {}).command || (item.install || {}).installUrl || (item.install || {}).status],
+        ["Risk", (item) => (((item.safety || {}).notes || [])[0])],
+        ["Reason", (item) => ((item.reasons || [])[0])]
+      ];
+      elements.comparison.innerHTML = rows.map(([label, getter]) => `
+        <table aria-label="${escapeAttr(label)} comparison">
+          <tr>
+            <th>${escapeHtml(label)}</th>
+            <td>${selected.map((item) => `<div>${escapeHtml(safeText(getter(item), "none"))}</div>`).join("")}</td>
+          </tr>
+        </table>
+      `).join("");
+    }
+
+    function providerLabel(item) {
+      const provider = item.providerStatus || {};
+      return `${provider.provider || item.source || "unknown"}${provider.variant ? `:${provider.variant}` : ""} (${provider.state || "unknown"})`;
+    }
+
+    function providerCoverageLabel(item) {
+      const provider = item.providerStatus || {};
+      const variants = provider.additionalProviders || item.providerVariants || [];
+      if (!variants.length) return safeText(provider.reason, "none");
+      return variants
+        .map((entry) => `${entry.provider || entry.source || "unknown"}${entry.variant ? `:${entry.variant}` : ""}`)
+        .filter((value, index, values) => values.indexOf(value) === index)
+        .join(", ");
+    }
+
+    function markdownForSelection() {
+      const selected = state.items.filter((item) => state.selected.has(item.id));
+      const rows = selected.length ? selected : filteredItems().slice(0, 5);
+      return rows.map((item) => [
+        `## ${item.name || item.id}`,
+        `- Score: ${item.score || 0} (${item.bucket || "reference"})`,
+        `- Type: ${item.assetType || "unknown"}`,
+        `- Source: ${item.source || "unknown"}`,
+        `- Provider source: ${item.providerSource || "unknown"}`,
+        `- Provider: ${providerLabel(item)}`,
+        `- Coverage: ${providerCoverageLabel(item)}`,
+        `- Action: ${item.recommendedAction || "reference-only"}`,
+        `- Install: ${((item.install || {}).command || (item.install || {}).installUrl || "none")}`,
+        `- Reason: ${(item.reasons || ["none"])[0]}`
+      ].join("\n")).join("\n\n");
+    }
+
+    function escapeHtml(value) {
+      return safeText(value).replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[char]));
+    }
+
+    function escapeAttr(value) {
+      return escapeHtml(value).replace(/`/g, "&#96;");
+    }
+
+    elements.loadJson.addEventListener("click", () => {
+      try {
+        loadPayload(JSON.parse(elements.input.value));
+      } catch (error) {
+        elements.results.innerHTML = `<div class="empty error">${escapeHtml(error.message)}</div>`;
+      }
+    });
+
+    elements.loadSample.addEventListener("click", () => {
+      elements.input.value = JSON.stringify(samplePayload, null, 2);
+      loadPayload(samplePayload);
+    });
+
+    elements.clearSelection.addEventListener("click", () => {
+      state.selected.clear();
+      render();
+    });
+
+    elements.copyMarkdown.addEventListener("click", async () => {
+      await navigator.clipboard.writeText(markdownForSelection());
+      elements.copyMarkdown.textContent = "Copied";
+      setTimeout(() => { elements.copyMarkdown.textContent = "Copy Markdown"; }, 1200);
+    });
+
+    [elements.bucketFilter, elements.typeFilter, elements.sourceFilter, elements.providerSourceFilter, elements.providerFilter, elements.providerStateFilter, elements.sortOrder].forEach((element) => {
+      element.addEventListener("change", render);
+    });
+
+    loadPayload(samplePayload);
+    elements.input.value = JSON.stringify(samplePayload, null, 2);
+  </script>
+</body>
+</html>

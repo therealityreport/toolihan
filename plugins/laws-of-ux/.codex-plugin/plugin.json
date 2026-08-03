@@ -1,0 +1,45 @@
+{
+  "name": "laws-of-ux",
+  "version": "0.1.0",
+  "description": "Audits a frontend project against the 30 Laws of UX (lawsofux.com). Detects the UI stack, scores each applicable law from concrete source-code signals, and produces a graded report (0-100 + A-F) with a findings table, a coverage band, and a prioritized quick-wins-vs-larger-efforts fix list. Static by default; an optional --url pass measures the running app. Read-only unless you run /ux-fix.",
+  "author": {
+    "name": "Thomas Hulihan",
+    "email": "admin@thereality.report",
+    "url": "https://github.com/therealityreport"
+  },
+  "homepage": "https://lawsofux.com",
+  "license": "MIT",
+  "keywords": [
+    "ux",
+    "laws-of-ux",
+    "usability",
+    "audit",
+    "heuristics",
+    "gestalt",
+    "cognitive-bias",
+    "design-review",
+    "frontend",
+    "grading",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Laws of UX",
+    "shortDescription": "Grade a frontend project against the 30 Laws of UX with code-level fixes",
+    "longDescription": "Walks a frontend codebase, detects the UI stack, and grades it against the 30 Laws of UX (Heuristics, Gestalt, Cognitive Biases, and general Principles) using concrete source-code signals. Applicability and detection-confidence are first-class: only laws it can actually assess move the grade, and every report states what it could not see. Produces a Markdown report plus an optional HTML scorecard in the shadcn/Geist visual style, a findings table with file:line evidence, and a prioritized quick-wins-vs-larger-efforts fix list. Static by default; an optional live pass measures the running app (performance, real tap-target geometry, rendered visuals). Read-only unless you opt into apply mode.",
+    "developerName": "Thomas Hulihan",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Audit my project against the Laws of UX",
+      "Grade the UX of this app and show me the fixes",
+      "Find usability issues in this frontend and prioritize them"
+    ],
+    "brandColor": "#6D28D9",
+    "websiteURL": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/laws-of-ux"
+  },
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/laws-of-ux"
+}

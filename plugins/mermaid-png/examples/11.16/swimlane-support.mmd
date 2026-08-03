@@ -1,0 +1,16 @@
+swimlane-beta LR
+  subgraph customer [Customer]
+    request[Request support]
+  end
+  subgraph support [Support]
+    triage{Can resolve?}
+    reply[Reply to customer]
+  end
+  subgraph engineering [Engineering]
+    investigate[Investigate defect]
+  end
+
+  request --> triage
+  triage -->|yes| reply
+  triage -->|no| investigate
+  investigate --> reply

@@ -1,0 +1,13 @@
+{
+  "aliases": {
+    "canonical-tool-name": [
+      "alternate-package-name",
+      "@scope/alternate-package-name"
+    ]
+  },
+  "notes": [
+    "Keys are canonical result names.",
+    "Values are package names that should dedupe into the canonical result.",
+    "Tool Finder normalizes scoped package names such as @scope/name to name before matching."
+  ]
+}

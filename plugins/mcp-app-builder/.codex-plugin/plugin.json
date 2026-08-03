@@ -1,0 +1,41 @@
+{
+  "name": "mcp-app-builder",
+  "version": "0.2.0+codex.202606302025",
+  "description": "Create, package, connect, and verify ready-to-use MCP Apps for Codex plugins.",
+  "author": {
+    "name": "Thomas Hulihan",
+    "url": "https://github.com/therealityreport"
+  },
+  "keywords": [
+    "mcp",
+    "apps-sdk",
+    "chatgpt-apps",
+    "scaffold",
+    "developer-tools"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "MCP App Builder",
+    "shortDescription": "Create MCP Apps and ChatGPT Apps.",
+    "longDescription": "MCP App Builder turns a product idea into a running MCP App or a ready-to-install Codex plugin. It generates the plugin manifest, bundled stdio MCP launcher, optional backend-issued app reference, Apps SDK tool and widget metadata, and a local marketplace entry when requested, then validates the complete package.",
+    "developerName": "Thomas Hulihan",
+    "category": "Coding",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Apps SDK scaffolding",
+      "Codex plugin packaging",
+      "MCP server planning",
+      "Widget metadata validation"
+    ],
+    "defaultPrompt": [
+      "Create a ready-to-use App for a Codex plugin.",
+      "Plan a ChatGPT App from this product idea.",
+      "Package and validate this MCP App as a Codex plugin."
+    ],
+    "websiteURL": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/mcp-app-builder"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/mcp-app-builder",
+  "homepage": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/mcp-app-builder"
+}

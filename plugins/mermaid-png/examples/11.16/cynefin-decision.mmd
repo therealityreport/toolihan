@@ -1,0 +1,17 @@
+%%{init: {'cynefin': {'seed': 42}}}%%
+cynefin-beta
+  title Delivery decision map
+
+  complex
+    "Probe a new workflow"
+  complicated
+    "Analyze the integration"
+  clear
+    "Apply the release checklist"
+  chaotic
+    "Stabilize the outage"
+  confusion
+    "Unclassified request"
+
+  complex --> complicated : "Pattern found"
+  clear --> chaotic : "Complacency"

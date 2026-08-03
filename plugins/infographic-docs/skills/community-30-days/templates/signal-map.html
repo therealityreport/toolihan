@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{DOC_TITLE}} - Signal Map</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    :root { --primary: 221 83% 53%; --ring: 221 83% 53%; }
+  </style>
+</head>
+<body>
+<div class="tab-bar">
+  <a href="index.html" class="tab-bar-logo"><span class="logo-mark">{{DOC_MARK}}</span> {{DOC_TITLE}}</a>
+  <a href="index.html" class="tab-btn"><span class="tab-icon">01</span> Overview</a>
+  <a href="signal-map.html" class="tab-btn active"><span class="tab-icon">02</span> Signal Map</a>
+  <a href="source-detail.html" class="tab-btn"><span class="tab-icon">03</span> Sources</a>
+  <a href="github.html" class="tab-btn"><span class="tab-icon">04</span> GitHub</a>
+  <a href="glossary.html" class="tab-btn"><span class="tab-icon">05</span> Glossary</a>
+  <a href="sources.html" class="tab-btn"><span class="tab-icon">06</span> Links</a>
+</div>
+<main style="padding-top:56px;">
+  <div class="doc-page">
+    <div class="doc-hero">
+      <h1>Signal Map</h1>
+      <p>Repeated themes from the last 30 days, grouped by practical meaning.</p>
+    </div>
+    <div class="release-grid">
+      <div class="release-col">
+        <h3><span class="col-dot" style="background:var(--brand)"></span> Pull</h3>
+        <div class="feat-list">
+          <div class="feat-item"><h5><span class="feat-icon">+</span>Praise</h5><p>{{PRAISE_SIGNAL}}</p></div>
+          <div class="feat-item"><h5><span class="feat-icon">^</span>Adoption</h5><p>{{ADOPTION_SIGNAL}}</p></div>
+          <div class="feat-item"><h5><span class="feat-icon">R</span>Requests</h5><p>{{REQUEST_SIGNAL}}</p></div>
+        </div>
+      </div>
+      <div class="release-col">
+        <h3><span class="col-dot" style="background:var(--accent-rose)"></span> Drag</h3>
+        <div class="feat-list">
+          <div class="feat-item"><h5><span class="feat-icon">!</span>Pain</h5><p>{{PAIN_SIGNAL}}</p></div>
+          <div class="feat-item"><h5><span class="feat-icon">?</span>Confusion</h5><p>{{CONFUSION_SIGNAL}}</p></div>
+          <div class="feat-item"><h5><span class="feat-icon">-</span>Counter-signal</h5><p>{{COUNTER_SIGNAL}}</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="page-pagination">
+      <a href="index.html">Previous: Overview</a>
+      <a href="source-detail.html">Next: Source Detail</a>
+    </div>
+    <div class="footer-bar"><p>{{DOC_TITLE}} - {{DATE_WINDOW}} - MADE WITH {{MODEL_NAME}}</p></div>
+  </div>
+</main>
+</body>
+</html>

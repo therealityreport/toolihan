@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{DOC_TITLE}} - Sources</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    :root { --primary: 221 83% 53%; --ring: 221 83% 53%; }
+  </style>
+</head>
+<body>
+<div class="tab-bar">
+  <a href="index.html" class="tab-bar-logo"><span class="logo-mark">{{DOC_MARK}}</span> {{DOC_TITLE}}</a>
+  <a href="index.html" class="tab-btn"><span class="tab-icon">01</span> Overview</a>
+  <a href="signal-map.html" class="tab-btn"><span class="tab-icon">02</span> Signal Map</a>
+  <a href="source-detail.html" class="tab-btn"><span class="tab-icon">03</span> Sources</a>
+  <a href="github.html" class="tab-btn"><span class="tab-icon">04</span> GitHub</a>
+  <a href="glossary.html" class="tab-btn"><span class="tab-icon">05</span> Glossary</a>
+  <a href="sources.html" class="tab-btn active"><span class="tab-icon">06</span> Links</a>
+</div>
+<main style="padding-top:56px;">
+  <div class="doc-page">
+    <div class="doc-hero">
+      <h1>Sources</h1>
+      <p>Cited links used to build the community pulse. This is not a raw search dump.</p>
+    </div>
+    <div class="sources-grid">
+      <a class="source-card" href="{{SOURCE_1_URL}}" target="_blank" rel="noopener"><div class="src-icon">{{SOURCE_1_TYPE}}</div><h4>{{SOURCE_1_TITLE}}</h4><p>{{SOURCE_1_REASON}}</p></a>
+      <a class="source-card" href="{{SOURCE_2_URL}}" target="_blank" rel="noopener"><div class="src-icon">{{SOURCE_2_TYPE}}</div><h4>{{SOURCE_2_TITLE}}</h4><p>{{SOURCE_2_REASON}}</p></a>
+      <a class="source-card" href="{{SOURCE_3_URL}}" target="_blank" rel="noopener"><div class="src-icon">{{SOURCE_3_TYPE}}</div><h4>{{SOURCE_3_TITLE}}</h4><p>{{SOURCE_3_REASON}}</p></a>
+      <a class="source-card" href="{{SOURCE_4_URL}}" target="_blank" rel="noopener"><div class="src-icon">{{SOURCE_4_TYPE}}</div><h4>{{SOURCE_4_TITLE}}</h4><p>{{SOURCE_4_REASON}}</p></a>
+    </div>
+    <div class="page-pagination">
+      <a href="glossary.html">Previous: Glossary</a>
+      <a href="index.html">Back to Overview</a>
+    </div>
+    <div class="footer-bar"><p>{{DOC_TITLE}} - {{DATE_WINDOW}} - MADE WITH {{MODEL_NAME}}</p></div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,120 @@
+{
+  "name": "infographic-docs",
+  "description": "External tools that improve infographic-docs generation, preview, diagrams, charts, and optional shadcn mode.",
+  "cadence": "weekly",
+  "toolFinderQuery": "infographic docs html accessibility shadcn diagrams charts playwright mcp",
+  "roots": [
+    "plugins/infographic-docs",
+    "./knowledge-base/info-docs"
+  ],
+  "externalTools": [
+    {
+      "name": "shadcn",
+      "provider": "npm",
+      "package": "shadcn",
+      "adoption": "optional-shadcn-mode",
+      "reason": "Use only when the user explicitly asks for shadcn or app-style docs."
+    },
+    {
+      "name": "Playwright MCP",
+      "provider": "npm",
+      "package": "@playwright/mcp",
+      "adoption": "mcp-preview",
+      "reason": "Preview generated docs through localhost and capture screenshots, snapshots, and PDFs."
+    },
+    {
+      "name": "Playwright Test",
+      "provider": "npm",
+      "package": "@playwright/test",
+      "adoption": "browser-verification",
+      "reason": "Optional scripted browser checks for generated docs."
+    },
+    {
+      "name": "Mermaid",
+      "provider": "npm",
+      "package": "mermaid",
+      "adoption": "inline-diagrams",
+      "reason": "Render simple flowcharts and sequence diagrams inside docs."
+    },
+    {
+      "name": "Mermaid CLI",
+      "provider": "npm",
+      "package": "@mermaid-js/mermaid-cli",
+      "adoption": "diagram-export",
+      "reason": "Pre-render Mermaid diagrams to SVG or PNG assets."
+    },
+    {
+      "name": "Vega-Lite",
+      "provider": "npm",
+      "package": "vega-lite",
+      "adoption": "chart-export",
+      "reason": "Render declarative chart specs to SVG or PNG assets."
+    },
+    {
+      "name": "Vega",
+      "provider": "npm",
+      "package": "vega",
+      "adoption": "chart-export",
+      "reason": "Runtime package needed by Vega-Lite CLI exporters."
+    },
+    {
+      "name": "Observable Plot",
+      "provider": "npm",
+      "package": "@observablehq/plot",
+      "adoption": "chart-reference",
+      "reason": "Reference package for lightweight explanatory chart patterns."
+    },
+    {
+      "name": "D3",
+      "provider": "npm",
+      "package": "d3",
+      "adoption": "custom-chart-reference",
+      "reason": "Reference package for custom infographic patterns when simple specs are not enough."
+    },
+    {
+      "name": "html-validate",
+      "provider": "npm",
+      "package": "html-validate",
+      "adoption": "html-validation",
+      "reason": "Optional structural validation for generated standalone HTML."
+    },
+    {
+      "name": "linkinator",
+      "provider": "npm",
+      "package": "linkinator",
+      "adoption": "link-validation",
+      "reason": "Optional broken-link and missing-image checks."
+    },
+    {
+      "name": "pa11y",
+      "provider": "npm",
+      "package": "pa11y",
+      "adoption": "accessibility-validation",
+      "reason": "Optional accessibility reports for generated docs."
+    },
+    {
+      "name": "axe-core",
+      "provider": "npm",
+      "package": "axe-core",
+      "adoption": "accessibility-engine",
+      "reason": "Reference accessibility engine for future validation scripts."
+    },
+    {
+      "name": "lighthouse",
+      "provider": "npm",
+      "package": "lighthouse",
+      "adoption": "quality-report",
+      "reason": "Optional performance and accessibility quality reports."
+    }
+  ],
+  "referenceRepos": [
+    "https://github.com/shadcn-ui/ui",
+    "https://github.com/microsoft/playwright-mcp",
+    "https://github.com/mermaid-js/mermaid",
+    "https://github.com/mermaid-js/mermaid-cli",
+    "https://github.com/vega/vega-lite",
+    "https://github.com/observablehq/plot",
+    "https://github.com/hashgraph-online/awesome-codex-plugins",
+    "https://github.com/hesreallyhim/awesome-claude-code"
+  ]
+}

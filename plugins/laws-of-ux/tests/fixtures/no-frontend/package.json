@@ -1,0 +1,14 @@
+{
+  "name": "orders-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend-only REST API — no UI. Used to test the no-frontend refusal path.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.11.5"
+  }
+}

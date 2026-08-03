@@ -1,0 +1,21 @@
+{
+  "name": "mermaid-png",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "description": "Local renderer for Mermaid diagrams to PNG and SVG assets.",
+  "scripts": {
+    "render": "node scripts/render-mermaid.mjs",
+    "test:renderer-contract": "node scripts/test-renderer-contract.mjs",
+    "test:smoke": "npm run test:renderer-contract && node scripts/smoke-render.mjs",
+    "render:import-pipeline:png": "node scripts/render-mermaid.mjs --input assets/import-pipeline.mmd --output assets/import-pipeline.png --format png",
+    "render:import-pipeline:svg": "node scripts/render-mermaid.mjs --input assets/import-pipeline.mmd --output assets/import-pipeline.svg --format svg"
+  },
+  "dependencies": {
+    "@mermaid-js/mermaid-cli": "11.16.0",
+    "mermaid": "11.16.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

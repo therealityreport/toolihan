@@ -1,0 +1,32 @@
+{
+  "browser-runtime": {
+    "primaryRoute": "debugpro-browser-runtime-proof",
+    "rootCauseCode": "missing-browser-script",
+    "evidenceTerms": ["index.html", "/assets/app.js", "404"],
+    "files": {
+      "browser-runtime/index.html": "ad3619c41829beefea7b42342b32feab5cbdebaa98c076c2660f46a843fa193c",
+      "browser-runtime/server.log": "983fb37e0560ebf9c34c2fc6ee998435ba6d199d470d788b0699319f8ea370b4",
+      "browser-runtime/static/app.js": "d0ad083781639f394459e39fbcef3d11f24ffacf37e2609941260a41c49ac221"
+    }
+  },
+  "mcp-runtime-ownership": {
+    "primaryRoute": "debugpro-mcp-runtime-ownership",
+    "rootCauseCode": "duplicate-mcp-owner",
+    "evidenceTerms": ["payments", "/opt/payments-v1/server", "payments__charge"],
+    "files": {
+      "mcp-runtime-ownership/project-config.json": "9e3d54ed479d18f6529396de4cda93c4244bcb20f852d1fa6c1f7daaf26ef7ab",
+      "mcp-runtime-ownership/session-state.txt": "e2d67547d894747c5f9a44fe7f8a673c25a8f12d8b6c65098dcdcf9bb36eb809",
+      "mcp-runtime-ownership/user-config.json": "05f218f06e023f095a450c41b37f0b2482b8570d4ec3ee35ebf8ecc6ba139978"
+    }
+  },
+  "ci-pr-failure": {
+    "primaryRoute": "debugpro-ci-pr-failure",
+    "rootCauseCode": "ci-python-version-mismatch",
+    "evidenceTerms": ["workflow.yml", "3.10", ">=3.12"],
+    "files": {
+      "ci-pr-failure/job.log": "b4223025782d9a02f759e9d83b5b8596122b9f91df3c55ce42206c30b48fffbf",
+      "ci-pr-failure/pyproject.toml": "43db22f9476007622b54f17bf29bb25a93c7d77633ece7137e4e37b2d353afcc",
+      "ci-pr-failure/workflow.yml": "f1c9a10824193650c7e404e1e41c915e14693b4a620e5897c18582be8f875e06"
+    }
+  }
+}

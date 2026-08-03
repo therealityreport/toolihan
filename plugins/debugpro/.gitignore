@@ -1,0 +1,13 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+node_modules/
+coverage/
+.nyc_output/
+lcov.info
+coverage.xml
+
+.tmp/
+.plugin-eval/runs/
+.plan-work/

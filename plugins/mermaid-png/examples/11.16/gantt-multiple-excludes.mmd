@@ -1,0 +1,9 @@
+gantt
+  title Release plan with exclusions
+  dateFormat YYYY-MM-DD
+  excludes weekends
+  %% Release freeze
+  excludes 2026-12-24 2026-12-25
+  section Delivery
+  Build :build, 2026-12-21, 5d
+  Verify :verify, after build, 3d

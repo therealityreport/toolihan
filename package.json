@@ -1,0 +1,12 @@
+{
+  "name": "plugins-and-skills-marketplace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public Codex and Claude plugin marketplace maintained by The Reality Report.",
+  "license": "MIT",
+  "scripts": {
+    "catalog": "node scripts/generate-catalog.mjs",
+    "validate": "node scripts/validate-repo.mjs",
+    "test": "npm run validate"
+  }
+}

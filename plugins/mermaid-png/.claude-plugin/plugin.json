@@ -1,0 +1,17 @@
+{
+  "name": "mermaid-png",
+  "version": "0.1.1",
+  "description": "Render Mermaid 11.16 diagrams from pasted text or .mmd files to PNG or SVG images.",
+  "author": {
+    "name": "Thomas Hulihan"
+  },
+  "keywords": [
+    "mermaid",
+    "diagram",
+    "png",
+    "svg"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/mermaid-png",
+  "homepage": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/mermaid-png"
+}

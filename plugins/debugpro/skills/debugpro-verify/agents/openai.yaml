@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro Verify"
+  short_description: "Verify a fix against the original failing signal"
+  default_prompt: "Use $debugpro-verify to verify this fix against the original failure."
+policy:
+  allow_implicit_invocation: false

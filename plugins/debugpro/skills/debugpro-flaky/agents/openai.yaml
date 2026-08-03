@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro Flaky Tests"
+  short_description: "Isolate timing, order, seed, and test pollution"
+  default_prompt: "Use $debugpro-flaky to isolate this intermittent test failure."
+policy:
+  allow_implicit_invocation: false

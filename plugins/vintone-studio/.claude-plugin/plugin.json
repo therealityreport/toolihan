@@ -1,0 +1,19 @@
+{
+  "name": "vintone-studio",
+  "version": "0.1.0",
+  "description": "Codex planning and runbook plugin for safe VINTONE Photoshop editing workflows.",
+  "author": {
+    "name": "The Reality Report"
+  },
+  "homepage": "https://www.instagram.com/vintonedesigns/",
+  "keywords": [
+    "vintone",
+    "photoshop",
+    "computer-use",
+    "design-planning",
+    "screen-printing",
+    "codex"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/vintone-studio"
+}

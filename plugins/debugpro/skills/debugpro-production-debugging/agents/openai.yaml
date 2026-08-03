@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro Production Debugging"
+  short_description: "Diagnose incidents from logs, traces, and metrics"
+  default_prompt: "Use $debugpro-production-debugging to diagnose this incident from production evidence."
+policy:
+  allow_implicit_invocation: false

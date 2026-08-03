@@ -1,0 +1,66 @@
+{
+  "kind": "plugin-eval-benchmark",
+  "schemaVersion": 2,
+  "version": 3,
+  "targetKind": "plugin",
+  "targetName": "debugpro",
+  "runner": {
+    "type": "codex-cli",
+    "model": "gpt-5.4",
+    "sandbox": "workspace-write",
+    "approvalPolicy": "never",
+    "extraArgs": []
+  },
+  "workspace": {
+    "sourcePath": ".plugin-eval/fixtures",
+    "setupMode": "copy",
+    "preserve": "on-failure"
+  },
+  "targetProvisioning": {
+    "mode": "workspace-plugin-marketplace"
+  },
+  "verifiers": {
+    "commands": [
+      "python3 verify_diagnosis.py"
+    ]
+  },
+  "notes": [
+    "Each scenario uses a deterministic broken fixture and writes one machine-checked diagnosis artifact.",
+    "Run in an isolated workspace because plugin-eval executes real Codex runs."
+  ],
+  "scenarios": [
+    {
+      "id": "browser-runtime",
+      "title": "Blank Browser Runtime",
+      "purpose": "Prove a blank page from HTTP and source evidence before proposing a fix.",
+      "userInput": "Use $debugpro to diagnose the blank page in browser-runtime. Do not edit fixture files. Write .plugin-eval-result.json with scenario, primaryRoute, rootCauseCode, and at least two evidence strings.",
+      "successChecklist": [
+        "The primary route is browser runtime proof.",
+        "The diagnosis identifies the missing script path from the 404 and HTML reference.",
+        "No fixture file is changed."
+      ]
+    },
+    {
+      "id": "mcp-runtime-ownership",
+      "title": "Duplicate MCP Runtime Owner",
+      "purpose": "Separate configured, launched, exposed, and callable MCP ownership.",
+      "userInput": "Use $debugpro to diagnose why the expected payments MCP tool is missing in mcp-runtime-ownership. Do not edit fixture files. Write .plugin-eval-result.json with scenario, primaryRoute, rootCauseCode, and at least two evidence strings.",
+      "successChecklist": [
+        "The primary route is MCP runtime ownership.",
+        "The diagnosis identifies the duplicate server name and stale active command.",
+        "No config or cache is changed."
+      ]
+    },
+    {
+      "id": "ci-pr-failure",
+      "title": "CI Python Version Mismatch",
+      "purpose": "Start from the exact failed job and trace it to the repository runtime contract.",
+      "userInput": "Use $debugpro to diagnose the failed CI job in ci-pr-failure. Do not edit fixture files. Write .plugin-eval-result.json with scenario, primaryRoute, rootCauseCode, and at least two evidence strings.",
+      "successChecklist": [
+        "The primary route is CI and PR failure.",
+        "The diagnosis identifies the workflow and package Python-version mismatch.",
+        "No workflow file is changed."
+      ]
+    }
+  ]
+}

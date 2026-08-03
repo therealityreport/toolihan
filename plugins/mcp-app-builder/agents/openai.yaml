@@ -1,0 +1,41 @@
+schema_version: 1
+package_version: "0.1.0"
+interface:
+  display_name: "MCP App Builder"
+  short_description: "Build ready-to-use MCP Apps for Codex plugins and ChatGPT."
+  default_prompt: "Use current Apps SDK and Codex plugin guidance, choose the smallest supported archetype, package plugin apps with a bundled MCP launcher, and validate the finished output."
+policy:
+  allow_implicit_invocation: true
+shared_capabilities:
+  - fs.read
+  - fs.edit
+  - shell.exec
+  - docs.openai
+  - mcp.local
+workflows:
+  - agent: mcp-app-builder
+    role: "Main entrypoint for creating, packaging, wrapping, and validating MCP Apps for Codex plugins or ChatGPT."
+    owns_skills: [create-mcp-chatgpt-app, create-mcp-app, migrate-oai-app, add-app-to-server, convert-web-app]
+skillset:
+  version: 1
+  owned:
+    - skill: create-mcp-chatgpt-app
+      status: active
+      version: "0.1.0"
+      role: "Routes app-building work through current docs, local scaffolds, recreation helpers, and read-only state checks."
+    - skill: create-mcp-app
+      status: active
+      version: "0.1.0"
+      role: "Upstream workflow for scaffolding new MCP Apps with interactive UI resources."
+    - skill: migrate-oai-app
+      status: active
+      version: "0.1.0"
+      role: "Upstream workflow for migrating OpenAI Apps SDK projects to MCP Apps SDK."
+    - skill: add-app-to-server
+      status: active
+      version: "0.1.0"
+      role: "Upstream workflow for adding MCP App UI resources to existing MCP server tools."
+    - skill: convert-web-app
+      status: active
+      version: "0.1.0"
+      role: "Upstream workflow for converting existing web apps into hybrid MCP Apps."

@@ -1,0 +1,78 @@
+{
+  "commands": [
+    {
+      "name": "scaffold_node_app",
+      "description": "Create a standalone MCP app or ready-to-install Codex plugin app scaffold.",
+      "command": "node scripts/scaffold_node_app.mjs --help",
+      "cwd": ".",
+      "mode": "writes-files",
+      "examples": [
+        "node scripts/scaffold_node_app.mjs --help",
+        "node scripts/scaffold_node_app.mjs --name \"Plugin App\" --out ./plugins/plugin-app --target codex-plugin --app-id plugin_asdk_app_..."
+      ]
+    },
+    {
+      "name": "validate_app_scaffold",
+      "description": "Validate a generated MCP app scaffold.",
+      "command": "node scripts/validate_app_scaffold.mjs <app-dir>",
+      "cwd": ".",
+      "mode": "read-only",
+      "examples": [
+        "node scripts/validate_app_scaffold.mjs /tmp/smoke-app"
+      ]
+    },
+    {
+      "name": "check_codex_local_app",
+      "description": "Check local Codex plugin app state.",
+      "command": "node scripts/check_codex_local_app.mjs --plugin <plugin-dir> --id mcp-app-builder --json",
+      "cwd": ".",
+      "mode": "read-only",
+      "examples": [
+        "node scripts/check_codex_local_app.mjs --plugin ${CLAUDE_PLUGIN_ROOT} --id mcp-app-builder --json"
+      ]
+    },
+    {
+      "name": "check_mcp_app_state",
+      "description": "Inspect MCP app builder plugin state.",
+      "command": "node scripts/check_mcp_app_state.mjs --plugin <plugin-dir> --json",
+      "cwd": ".",
+      "mode": "read-only",
+      "examples": [
+        "node scripts/check_mcp_app_state.mjs --plugin ${CLAUDE_PLUGIN_ROOT} --json"
+      ]
+    },
+    {
+      "name": "recreate_mcp_apps_from_urls",
+      "description": "Recreate MCP app scaffolds from source URLs.",
+      "command": "node scripts/recreate_mcp_apps_from_urls.mjs --help",
+      "cwd": ".",
+      "mode": "writes-files",
+      "examples": [
+        "node scripts/recreate_mcp_apps_from_urls.mjs --help"
+      ]
+    },
+    {
+      "name": "connect_codex_app",
+      "description": "Scaffold/start/register/verify a standalone MCP app or Codex plugin app. Modes: mcp-server | apps-app. Subcommands: up | down | status.",
+      "command": "node scripts/connect_codex_app.mjs --help",
+      "cwd": ".",
+      "mode": "writes-files",
+      "examples": [
+        "node scripts/connect_codex_app.mjs up --app /tmp/my-app --name \"My App\" --archetype vanilla-widget --mode mcp-server",
+        "node scripts/connect_codex_app.mjs up --app /tmp/my-plugin --name \"My Plugin\" --archetype vanilla-widget --target codex-plugin --mode mcp-server",
+        "node scripts/connect_codex_app.mjs status --app /tmp/my-app",
+        "node scripts/connect_codex_app.mjs down --app /tmp/my-app"
+      ]
+    },
+    {
+      "name": "verify_codex_connection",
+      "description": "Probe a running MCP app: MCP handshake, tools/list, widget resource read, optional tools/call.",
+      "command": "node scripts/verify_codex_connection.mjs --help",
+      "cwd": ".",
+      "mode": "read-only",
+      "examples": [
+        "node scripts/verify_codex_connection.mjs --app /tmp/my-app --port 8787 --call"
+      ]
+    }
+  ]
+}

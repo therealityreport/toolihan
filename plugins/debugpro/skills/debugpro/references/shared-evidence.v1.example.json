@@ -1,0 +1,18 @@
+{
+  "runId": "debugpro-2026-06-09-example",
+  "sourcePlugin": "debugpro",
+  "findingId": "DBG-001",
+  "severity": "high",
+  "claim": "The runtime route owner does not match the agent attempting browser inspection.",
+  "evidence": [
+    {
+      "kind": "runtime",
+      "summary": "Route token was claimed by agent-a but validation was attempted by agent-b.",
+      "path": "debug-run/route-claim.json",
+      "redacted": true
+    }
+  ],
+  "affectedFiles": ["debug-run/route-claim.json"],
+  "recommendedNextStep": "Reclaim the browser target or hand the route token back to the owning agent.",
+  "status": "open"
+}

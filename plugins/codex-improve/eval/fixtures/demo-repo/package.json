@@ -1,0 +1,8 @@
+{
+  "name": "codex-improve-demo-orders",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}

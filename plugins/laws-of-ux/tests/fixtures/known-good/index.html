@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Known-good fixture</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Acme</a>
+    <!-- ADHERENCE Hick's/Jakob's: 5 grouped top-level items + a "More" overflow -->
+    <nav class="nav" aria-label="Primary">
+      <a href="/products">Products</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/docs">Docs</a>
+      <a href="/blog">Blog</a>
+      <details class="more">
+        <summary>More</summary>
+        <a href="/about">About</a>
+        <a href="/careers">Careers</a>
+        <a href="/contact">Contact</a>
+      </details>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ADHERENCE Von Restorff: exactly one primary; secondary is outline -->
+    <div class="cta-row">
+      <button class="btn btn-primary">Start free trial</button>
+      <button class="btn btn-outline">Learn more</button>
+    </div>
+
+    <!-- ADHERENCE Common Region/Chunking: grouped fieldsets; autocomplete; adequate targets -->
+    <form id="signup" novalidate>
+      <fieldset>
+        <legend>Your details</legend>
+        <label>First name <input name="first" autocomplete="given-name"></label>
+        <label>Last name <input name="last" autocomplete="family-name"></label>
+        <label>Email <input name="email" type="email" autocomplete="email" inputmode="email"></label>
+      </fieldset>
+      <fieldset>
+        <legend>Company</legend>
+        <label>Company <input name="company" autocomplete="organization"></label>
+        <label>Phone <input name="phone" type="tel" autocomplete="tel" inputmode="tel"></label>
+      </fieldset>
+      <button class="btn btn-primary" type="submit">Create account</button>
+    </form>
+
+    <div id="results" aria-live="polite"></div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

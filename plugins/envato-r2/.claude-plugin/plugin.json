@@ -1,0 +1,19 @@
+{
+  "name": "envato-r2",
+  "version": "0.1.1",
+  "description": "Search Envato with a user-owned browser session, download licensed assets, and save them to Cloudflare R2.",
+  "author": {
+    "name": "The Reality Report"
+  },
+  "homepage": "https://app.envato.com/",
+  "keywords": [
+    "envato",
+    "envato-elements",
+    "cloudflare-r2",
+    "assets",
+    "mcp",
+    "codex"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/envato-r2"
+}

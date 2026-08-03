@@ -1,0 +1,61 @@
+{
+  "name": "tool-finder",
+  "version": "0.1.0",
+  "description": "Find, compare, improve, self-check, and plan installation for agent tools across callable Codex tools, connector plugins, local inventory, live GitHub, Hugging Face, skills.sh, npm, Python, Homebrew, and deferred package registries.",
+  "author": {
+    "name": "Thomas Hulihan",
+    "url": "https://github.com/therealityreport"
+  },
+  "keywords": [
+    "tools",
+    "skills",
+    "plugins",
+    "mcp",
+    "connectors",
+    "agents",
+    "cli",
+    "github",
+    "hugging-face",
+    "skills.sh"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Tool Finder",
+    "shortDescription": "Find, compare, and improve agent tools.",
+    "longDescription": "Tool Finder discovers callable Codex tools, connector plugin catalogs, local skills and plugins, MCP servers, CLIs, hooks, agents, GitHub examples, Hugging Face models/datasets/Spaces, skills.sh results, npm packages, Python packages, Homebrew formulas, alternatives, similar usage repositories, daily update reports, provider health, skipped-provider reasons, provider-source labels, configurable deduplicated registry variants, GitHub CLI code-search auth guidance, comparison UI provider coverage filters, required TOOLS.md implementation shortlists, media-rich HTML report exports, and dry-run install plans.",
+    "developerName": "Thomas Hulihan",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Tool discovery",
+      "GitHub search",
+      "Hugging Face search",
+      "Runtime connector catalog",
+      "Package registry lookup",
+      "Update monitoring",
+      "Provider self-check",
+      "Provider coverage",
+      "Provider source labels",
+      "Registry deduplication",
+      "GitHub CLI auth helper",
+      "TOOLS.md shortlist export",
+      "Adoption-scope filtering",
+      "HTML report export",
+      "Install planning"
+    ],
+    "brandColor": "#0F766E",
+    "composerIcon": "./assets/tool-finder.svg",
+    "logo": "./assets/tool-finder.svg",
+    "screenshots": [],
+    "defaultPrompt": [
+      "Find the best tool for this job.",
+      "Run a full Tool Finder provider search.",
+      "Check Tool Finder provider health."
+    ],
+    "websiteURL": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/tool-finder"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/tool-finder",
+  "homepage": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/tool-finder"
+}

@@ -1,0 +1,44 @@
+{
+  "name": "universal-debugger",
+  "version": "0.1.0",
+  "description": "Cross-codebase debugging orchestration for routing failures, bug hunts, adjacent defect sweeps, and evidence-backed fixes.",
+  "author": {
+    "name": "The Reality Report",
+    "url": "https://github.com/thomashulihan"
+  },
+  "homepage": "https://github.com/thomashulihan/universal-debugger",
+  "license": "MIT",
+  "keywords": [
+    "debugging",
+    "root-cause-analysis",
+    "triage",
+    "bug-finding",
+    "sentry",
+    "codex",
+    "skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Universal Debugger",
+    "shortDescription": "Route debugging work through root-cause-first investigation workflows.",
+    "longDescription": "Portable Codex plugin for diagnosing issues across codebases by collecting evidence, choosing the right debugging skill family, preserving root-cause-first investigation, finding same-family bugs during approved fixes, and producing clear handoffs before fixes.",
+    "developerName": "The Reality Report",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/thomashulihan/universal-debugger",
+    "privacyPolicyURL": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
+    "termsOfServiceURL": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
+    "defaultPrompt": [
+      "Diagnose this failure and identify the root cause before fixing it.",
+      "Find real bugs in this diff and sweep for adjacent defects while fixing.",
+      "Turn these logs and symptoms into an evidence-backed debugging handoff."
+    ],
+    "brandColor": "#2563EB",
+    "screenshots": []
+  },
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/universal-debugger"
+}

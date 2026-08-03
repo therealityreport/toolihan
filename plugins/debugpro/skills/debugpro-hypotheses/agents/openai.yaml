@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro Hypotheses"
+  short_description: "Build and test falsifiable debugging hypotheses"
+  default_prompt: "Use $debugpro-hypotheses to build falsifiable causes and test one at a time."
+policy:
+  allow_implicit_invocation: false

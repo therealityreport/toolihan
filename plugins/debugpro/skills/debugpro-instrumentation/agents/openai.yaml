@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro Instrumentation"
+  short_description: "Add the smallest probe needed to prove a cause"
+  default_prompt: "Use $debugpro-instrumentation to add the smallest probe that can prove this cause."
+policy:
+  allow_implicit_invocation: false

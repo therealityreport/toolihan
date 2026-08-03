@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "decodo": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@decodo/mcp-server@1.2.3"
+      ],
+      "env": {
+        "SCRAPER_API_TOKEN": "${SCRAPER_API_TOKEN}",
+        "TOOLSETS": "web,search,social_media,ai"
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro Arbitration"
+  short_description: "Compare debugging evidence before choosing a fix"
+  default_prompt: "Use $debugpro-arbitration to compare investigation results before choosing a fix."
+policy:
+  allow_implicit_invocation: false

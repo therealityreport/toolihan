@@ -1,0 +1,25 @@
+{
+  "mcpServers": {
+    "infographic-preview-playwright": {
+      "command": "npx",
+      "cwd": ".",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--headless",
+        "--browser",
+        "chrome",
+        "--caps",
+        "vision,pdf",
+        "--allowed-origins",
+        "http://localhost:*",
+        "--output-dir",
+        "./.playwright-mcp-output"
+      ],
+      "env": {
+        "PLAYWRIGHT_MCP_OUTPUT_MODE": "file",
+        "PLAYWRIGHT_MCP_CONSOLE_LEVEL": "warning"
+      }
+    }
+  }
+}

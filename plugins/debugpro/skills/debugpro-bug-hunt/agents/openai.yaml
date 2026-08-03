@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro Bug Hunt"
+  short_description: "Find evidence-backed defects in diffs and logs"
+  default_prompt: "Use $debugpro-bug-hunt to find proven defects in this diff or failure evidence."
+policy:
+  allow_implicit_invocation: false

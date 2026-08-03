@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro Source Runtime Parity"
+  short_description: "Prove which source, cache, or runtime copy is active"
+  default_prompt: "Use $debugpro-source-runtime-parity to prove which copy is active."
+policy:
+  allow_implicit_invocation: false

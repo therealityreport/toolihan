@@ -1,0 +1,37 @@
+{
+  "name": "mermaid-png",
+  "version": "0.1.1",
+  "description": "Render Mermaid 11.16 diagrams from pasted text or .mmd files to PNG or SVG images.",
+  "author": {
+    "name": "Thomas Hulihan",
+    "url": "https://github.com/therealityreport"
+  },
+  "license": "MIT",
+  "keywords": [
+    "mermaid",
+    "diagram",
+    "png",
+    "svg"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Mermaid PNG",
+    "shortDescription": "Render Mermaid diagrams to PNG or SVG files.",
+    "longDescription": "Reusable Mermaid 11.16 renderer for Codex workflows. It supports the ordinary diagram types plus Cynefin, swimlanes, railroad grammars, TreeView, richer pie and XY charts, architecture alignment, nullable ER fields, and multi-exclusion Gantt schedules. It validates created PNG or SVG files and reports the final image path.",
+    "developerName": "Thomas Hulihan",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Render this Mermaid diagram as PNG or SVG.",
+      "Convert this .mmd file to both PNG and SVG.",
+      "Render a Mermaid 11.16 Cynefin, swimlane, railroad, TreeView, architecture, chart, ER, or Gantt diagram."
+    ],
+    "brandColor": "#0F766E",
+    "websiteURL": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/mermaid-png"
+  },
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/mermaid-png",
+  "homepage": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/mermaid-png"
+}

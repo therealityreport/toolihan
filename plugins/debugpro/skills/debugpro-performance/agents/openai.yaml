@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro Performance"
+  short_description: "Measure latency and resource use before optimizing"
+  default_prompt: "Use $debugpro-performance to measure this slowdown before changing code."
+policy:
+  allow_implicit_invocation: false

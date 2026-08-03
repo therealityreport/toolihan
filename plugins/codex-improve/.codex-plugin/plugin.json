@@ -1,0 +1,39 @@
+{
+  "name": "codex-improve",
+  "version": "0.2.0",
+  "description": "Audit any codebase, write evidence-backed plans, and execute approved work through the shared universal role catalog.",
+  "author": {
+    "name": "Thomas Hulihan",
+    "url": "https://github.com/therealityreport"
+  },
+  "license": "MIT",
+  "keywords": [
+    "audit",
+    "planning",
+    "code-review",
+    "multi-agent",
+    "migration",
+    "ci"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Codex Improve",
+    "shortDescription": "Audit, plan, execute, and verify with universal roles",
+    "longDescription": "Maps a codebase, vets findings, produces executable plans, and implements approved work in isolated worktrees through the shared universal role catalog and its runtime capability gates.",
+    "developerName": "Thomas Hulihan",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Audit this repository and propose evidence-backed improvements.",
+      "Diagnose the failing CI checks and write a repair plan.",
+      "Plan a safe migration with rollback instructions."
+    ],
+    "brandColor": "#0F766E",
+    "websiteURL": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/codex-improve"
+  },
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/codex-improve",
+  "homepage": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/codex-improve"
+}

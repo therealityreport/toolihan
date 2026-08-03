@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{DOC_TITLE}} - Overview</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    :root { --primary: 221 83% 53%; --ring: 221 83% 53%; }
+  </style>
+</head>
+<body>
+<div class="tab-bar">
+  <a href="index.html" class="tab-bar-logo"><span class="logo-mark">{{DOC_MARK}}</span> {{DOC_TITLE}}</a>
+  <a href="index.html" class="tab-btn active"><span class="tab-icon">01</span> Overview</a>
+  <a href="signal-map.html" class="tab-btn"><span class="tab-icon">02</span> Signal Map</a>
+  <a href="source-detail.html" class="tab-btn"><span class="tab-icon">03</span> Sources</a>
+  <a href="github.html" class="tab-btn"><span class="tab-icon">04</span> GitHub</a>
+  <a href="glossary.html" class="tab-btn"><span class="tab-icon">05</span> Glossary</a>
+  <a href="sources.html" class="tab-btn"><span class="tab-icon">06</span> Links</a>
+</div>
+<nav class="page-nav" aria-label="Sections">
+  <a href="#hero" data-label="INTRO" class="active"></a>
+  <a href="#themes" data-label="THEMES"></a>
+  <a href="#timeline" data-label="TIMELINE"></a>
+  <a href="#so-what" data-label="SO WHAT"></a>
+</nav>
+<main style="padding-top:56px;">
+  <section id="hero" class="page hero">
+    <div class="page-inner">
+      <div class="hero-badge fade-up"><span class="dot"></span> LAST 30 DAYS - {{DATE_WINDOW}}</div>
+      <h1 class="hero-title fade-up stagger-1">{{TOPIC}}<br><em>community pulse.</em></h1>
+      <p class="hero-sub fade-up stagger-2">{{VERDICT}}</p>
+      <div class="hero-stats fade-up stagger-3">
+        <div><div class="hero-stat-val">{{STAT_1_VALUE}}</div><div class="hero-stat-label">{{STAT_1_LABEL}}</div></div>
+        <div><div class="hero-stat-val">{{STAT_2_VALUE}}</div><div class="hero-stat-label">{{STAT_2_LABEL}}</div></div>
+        <div><div class="hero-stat-val">{{STAT_3_VALUE}}</div><div class="hero-stat-label">{{STAT_3_LABEL}}</div></div>
+        <div><div class="hero-stat-val">{{STAT_4_VALUE}}</div><div class="hero-stat-label">{{STAT_4_LABEL}}</div></div>
+      </div>
+    </div>
+  </section>
+  <section id="themes" class="page">
+    <div class="page-inner">
+      <div class="page-number">01 - WHAT PEOPLE KEEP SAYING</div>
+      <h2 class="section-title">{{THEMES_TITLE}}</h2>
+      <p class="section-desc">{{THEMES_DESC}}</p>
+      <div class="h-grid">
+        <div class="h-card fade-up"><div class="h-icon">+</div><h4>{{THEME_1_TITLE}}</h4><p>{{THEME_1_BODY}}</p><div class="h-meta">{{THEME_1_META}}</div></div>
+        <div class="h-card fade-up stagger-1"><div class="h-icon">!</div><h4>{{THEME_2_TITLE}}</h4><p>{{THEME_2_BODY}}</p><div class="h-meta">{{THEME_2_META}}</div></div>
+        <div class="h-card fade-up stagger-2"><div class="h-icon">?</div><h4>{{THEME_3_TITLE}}</h4><p>{{THEME_3_BODY}}</p><div class="h-meta">{{THEME_3_META}}</div></div>
+      </div>
+    </div>
+  </section>
+  <section id="timeline" class="page">
+    <div class="page-inner">
+      <div class="page-number">02 - WHAT CHANGED THIS MONTH</div>
+      <h2 class="section-title">{{TIMELINE_TITLE}}</h2>
+      <div class="timeline-wrap">
+        <div class="tl-event"><div class="tl-dot">1</div><div class="tl-card"><div class="tl-date">{{EVENT_1_DATE}}</div><h4>{{EVENT_1_TITLE}}</h4><p>{{EVENT_1_BODY}}</p><div class="tl-tags"><span class="tl-tag">{{EVENT_1_TAG}}</span></div></div></div>
+        <div class="tl-event"><div class="tl-dot">2</div><div class="tl-card"><div class="tl-date">{{EVENT_2_DATE}}</div><h4>{{EVENT_2_TITLE}}</h4><p>{{EVENT_2_BODY}}</p><div class="tl-tags"><span class="tl-tag">{{EVENT_2_TAG}}</span></div></div></div>
+        <div class="tl-event"><div class="tl-dot">3</div><div class="tl-card"><div class="tl-date">{{EVENT_3_DATE}}</div><h4>{{EVENT_3_TITLE}}</h4><p>{{EVENT_3_BODY}}</p><div class="tl-tags"><span class="tl-tag">{{EVENT_3_TAG}}</span></div></div></div>
+      </div>
+    </div>
+  </section>
+  <section id="so-what" class="page">
+    <div class="page-inner">
+      <div class="page-number">03 - SO WHAT</div>
+      <h2 class="section-title">{{SO_WHAT_TITLE}}</h2>
+      <p class="section-desc">{{SO_WHAT_DESC}}</p>
+      <div class="verdict">
+        <div class="v-label">PRACTICAL TAKEAWAY</div>
+        <div class="v-answer">{{SO_WHAT_VERDICT}}</div>
+        <p>{{SOURCE_LIMITS}}</p>
+      </div>
+      <div class="footer-bar"><p>{{DOC_TITLE}} - {{DATE_WINDOW}} - MADE WITH {{MODEL_NAME}}</p></div>
+    </div>
+  </section>
+</main>
+<script src="assets/nav-script.js"></script>
+</body>
+</html>

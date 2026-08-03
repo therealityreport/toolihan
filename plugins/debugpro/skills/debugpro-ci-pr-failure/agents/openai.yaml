@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro CI and PR Failure"
+  short_description: "Diagnose failed CI jobs from exact check evidence"
+  default_prompt: "Use $debugpro-ci-pr-failure to diagnose this failed check from its exact logs."
+policy:
+  allow_implicit_invocation: false

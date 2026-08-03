@@ -1,0 +1,11 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Laws of UX audit">
+  <rect width="128" height="128" rx="28" fill="#0B0B0F"/>
+  <!-- grade dial: track + swept meter (~82%) -->
+  <circle cx="64" cy="64" r="34" fill="none" stroke="#26262E" stroke-width="10"/>
+  <circle cx="64" cy="64" r="34" fill="none" stroke="#6D28D9" stroke-width="10"
+          stroke-linecap="round" stroke-dasharray="213.6"
+          stroke-dashoffset="38.4" transform="rotate(-90 64 64)"/>
+  <!-- checkmark in the center -->
+  <path d="M50 65 L60 75 L80 52" fill="none" stroke="#FAFAFA" stroke-width="7"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

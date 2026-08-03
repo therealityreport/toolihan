@@ -1,0 +1,101 @@
+{
+  "name": "plugins-and-skills",
+  "owner": {
+    "name": "The Reality Report",
+    "url": "https://github.com/therealityreport"
+  },
+  "metadata": {
+    "description": "Open-source plugins, skills, MCP integrations, and agent workflows.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "chrome-devtools",
+      "source": "./plugins/chrome-devtools",
+      "description": "Codex Chrome DevTools plugin with route sessions, upstream MCP delegation, live evidence bundles, API discovery, redacted cURL, performance workflows, and sync guardrails.",
+      "version": "0.1.1",
+      "license": "MIT",
+      "category": "coding"
+    },
+    {
+      "name": "decodo",
+      "source": "./plugins/decodo",
+      "description": "Decodo scraping, proxy, MCP, and SDK workflows for Codex.",
+      "version": "0.1.0+codex.20260529004411",
+      "license": "MIT",
+      "category": "productivity"
+    },
+    {
+      "name": "envato-r2",
+      "source": "./plugins/envato-r2",
+      "description": "Search Envato with a user-owned browser session, download licensed assets, and save them to Cloudflare R2.",
+      "version": "0.1.1",
+      "license": "MIT",
+      "category": "coding"
+    },
+    {
+      "name": "infographic-docs",
+      "source": "./plugins/infographic-docs",
+      "description": "Multi-page HTML explainer/guide generator. Builds styled, multi-tab HTML docs into the knowledge-base, creates last-30-days community pulse docs, routes optional external tools, previews through Playwright MCP, renders diagrams/charts, and registers docs in the library index.",
+      "version": "1.3.2+codex.20260722230219",
+      "license": "MIT",
+      "category": "productivity"
+    },
+    {
+      "name": "laws-of-ux",
+      "source": "./plugins/laws-of-ux",
+      "description": "Audits a frontend project against the 30 Laws of UX (lawsofux.com). Detects the UI stack, scores each applicable law from concrete source-code signals, and produces a graded report (0-100 + A-F) with a findings table, a coverage band, and a prioritized quick-wins-vs-larger-efforts fix list. Static by default; an optional --url pass measures the running app. Read-only unless you run /ux-fix.",
+      "version": "0.1.0",
+      "license": "MIT",
+      "category": "productivity"
+    },
+    {
+      "name": "mcp-app-builder",
+      "source": "./plugins/mcp-app-builder",
+      "description": "Create, package, connect, and verify ready-to-use MCP Apps for Codex plugins.",
+      "version": "0.2.0+codex.202606302025",
+      "license": "MIT",
+      "category": "coding"
+    },
+    {
+      "name": "mermaid-png",
+      "source": "./plugins/mermaid-png",
+      "description": "Render Mermaid 11.16 diagrams from pasted text or .mmd files to PNG or SVG images.",
+      "version": "0.1.1",
+      "license": "MIT",
+      "category": "productivity"
+    },
+    {
+      "name": "supabase-fullstack",
+      "source": "./plugins/supabase-fullstack",
+      "description": "Connector-aware Supabase command surface for live project access, SQL, migrations, advisors, logs, branches, Edge Functions, RLS, Auth, Storage, Postgres performance, and local project conventions.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "category": "productivity"
+    },
+    {
+      "name": "tool-finder",
+      "source": "./plugins/tool-finder",
+      "description": "Find, compare, improve, self-check, and plan installation for agent tools across callable Codex tools, connector plugins, local inventory, live GitHub, Hugging Face, skills.sh, npm, Python, Homebrew, and deferred package registries.",
+      "version": "0.1.0",
+      "license": "MIT",
+      "category": "productivity"
+    },
+    {
+      "name": "universal-debugger",
+      "source": "./plugins/universal-debugger",
+      "description": "Cross-codebase debugging orchestration for routing failures, bug hunts, adjacent defect sweeps, and evidence-backed fixes.",
+      "version": "0.1.0",
+      "license": "MIT",
+      "category": "coding"
+    },
+    {
+      "name": "vintone-studio",
+      "source": "./plugins/vintone-studio",
+      "description": "Codex planning and runbook plugin for safe VINTONE Photoshop editing workflows.",
+      "version": "0.1.0",
+      "license": "MIT",
+      "category": "productivity"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+railroad-peg-beta
+title Identifier excluding keywords
+
+Identifier <- !Keyword Letter Letter* ;
+Keyword <- "if" / "else" ;
+Letter <- "a" / "b" / "_" ;

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UX Audit — Laws of UX</title>
+  <link rel="stylesheet" href="scorecard.css">
+</head>
+<!--
+  laws-of-ux HTML scorecard template.
+  The /ux-audit synthesizer copies scorecard.css next to this file and fills the
+  <!-- FILL --> placeholders from the audit data. The grade dial is driven by two
+  numbers: set class="grade-dial grade-<A-F>" and the meter's stroke-dashoffset.
+  Circumference for r=70 is 2*pi*70 ≈ 439.8. offset = 439.8 * (1 - percent/100).
+  Everything below is a worked example (grade B / 82) — replace with real data.
+-->
+<body>
+<div class="wrap">
+
+  <header class="sc-header">
+    <div class="sc-eyebrow">Laws of UX · Audit</div>
+    <h1 class="sc-title"><!-- FILL: project name --></h1>
+    <div class="sc-meta">
+      <span class="sc-chip"><!-- FILL: stack --></span>
+      <span class="sc-chip"><!-- FILL: static | static + live --></span>
+      <span class="sc-chip"><!-- FILL: N files scanned --></span>
+      <span class="sc-chip"><!-- FILL: date --></span>
+    </div>
+  </header>
+
+  <!-- GRADE HERO -->
+  <section class="grade-hero">
+    <div class="grade-dial grade-B"><!-- FILL: grade-A … grade-F -->
+      <svg viewBox="0 0 160 160" aria-hidden="true">
+        <circle class="track" cx="80" cy="80" r="70" fill="none" stroke-width="12"></circle>
+        <!-- FILL stroke-dashoffset: 439.8 * (1 - percent/100). 82% → 79.2 -->
+        <circle class="meter" cx="80" cy="80" r="70" fill="none" stroke-width="12"
+                stroke-dasharray="439.8" stroke-dashoffset="79.2"></circle>
+      </svg>
+      <div class="center">
+        <span class="letter"><!-- FILL: B --></span>
+        <span class="pct"><!-- FILL: 82/100 --></span>
+      </div>
+    </div>
+    <div class="grade-verdict">
+      <h2><!-- FILL: one-line verdict --></h2>
+      <p><!-- FILL: the standout issue or strength --></p>
+      <div class="coverage-band"><!-- FILL: assessed 19/30 laws (5 N/A, 5 advisory, 1 needs live review; run --url to assess 3 more) --></div>
+    </div>
+  </section>
+
+  <!-- CATEGORY BREAKDOWN -->
+  <section class="section">
+    <div class="section-eyebrow">Category breakdown</div>
+    <div class="cat-grid">
+      <!-- Repeat one .cat-row per category. Bar width = category percent. -->
+      <div class="cat-row">
+        <div class="cat-head">
+          <span class="cat-name">Information Architecture &amp; Nav</span>
+          <span class="cat-score"><!-- FILL: B · 84 --></span>
+        </div>
+        <div class="cat-bar"><span style="width:84%"></span></div>
+        <div class="cat-sub"><!-- FILL: assessed 5/6 · N/A: — --></div>
+      </div>
+      <!-- Visual Hierarchy & Gestalt / Interaction & Feedback / Forms & Input … -->
+    </div>
+  </section>
+
+  <!-- FINDINGS -->
+  <section class="section">
+    <div class="section-eyebrow">Findings — most severe first</div>
+    <div class="table-scroll">
+      <table class="findings">
+        <thead>
+          <tr>
+            <th>Law</th><th>Cat</th><th>Severity</th><th>Basis</th>
+            <th>Location</th><th>Evidence</th><th>Recommendation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Repeat one <tr> per confirmed finding. Example: -->
+          <tr>
+            <td>Hick's Law</td>
+            <td>IA</td>
+            <td><span class="sev sev-high">High</span></td>
+            <td><span class="basis">static</span></td>
+            <td><code class="loc">src/components/Nav.tsx:18</code></td>
+            <td>12 flat top-level nav items</td>
+            <td>Group into ≤5 sections + overflow menu</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PRIORITIZED FIXES -->
+  <section class="section">
+    <div class="section-eyebrow">Prioritized fixes</div>
+    <div class="fix-list">
+      <!-- Quick wins first (class="fix-card quick"), then larger efforts (class="fix-card larger"). -->
+      <div class="fix-card quick">
+        <div class="fix-head">
+          <span class="dot"></span>
+          <h4><!-- FILL: [Critical] Fitts's Law — Button.tsx:7 --></h4>
+          <span class="fix-effort">quick-win · ~2 lines</span>
+        </div>
+        <p><!-- FILL: what & why --></p>
+        <pre><code><span class="diff-del">- &lt;button className="p-0.5"&gt;</span>
+<span class="diff-add">+ &lt;button className="p-3 min-h-11 min-w-11"&gt;</span></code></pre>
+      </div>
+      <div class="fix-card larger">
+        <div class="fix-head">
+          <span class="dot"></span>
+          <h4><!-- FILL: [High] Hick's Law — nav IA --></h4>
+          <span class="fix-effort">larger-effort · multi-file</span>
+        </div>
+        <p><!-- FILL: described structural change (no auto-diff) --></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE & LIMITS -->
+  <section class="section">
+    <div class="section-eyebrow">Coverage &amp; limits</div>
+    <div class="coverage">
+      <h3>What this audit could and could not see</h3>
+      <ul>
+        <li><span class="k">Not applicable</span> (excluded from grade): <!-- FILL --></li>
+        <li><span class="k">Needs live/visual review</span> (run <code class="loc">--url</code>): <!-- FILL --></li>
+        <li><span class="k">Advisory (not scored)</span>: Pareto, Mental Model, Paradox of the Active User, Cognitive Bias. <!-- FILL notes --></li>
+        <li><span class="k">Sampling</span>: <!-- FILL: what was sampled, or "full scan" --></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="sc-footer">
+    Laws of UX audit · <!-- FILL: date --> · made with <!-- FILL: model --> ·
+    grading method &amp; weights in <a href="https://lawsofux.com">lawsofux.com</a>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+{
+  "name": "debugpro",
+  "version": "0.4.0",
+  "description": "Evidence-first debugging for Codex.",
+  "author": {
+    "name": "Thomas Hulihan",
+    "url": "https://github.com/thomashulihan"
+  },
+  "homepage": "https://github.com/thomashulihan/debugpro",
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/debugpro",
+  "license": "MIT",
+  "keywords": [
+    "debugging",
+    "root-cause",
+    "hypotheses",
+    "observability",
+    "capability-routing",
+    "bisect",
+    "flaky-tests",
+    "profiling",
+    "postmortem",
+    "bug-hunt",
+    "evidence-modes",
+    "secret-redaction",
+    "browser-runtime",
+    "ci-debugging",
+    "mcp-ownership",
+    "runtime-parity",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "DebugPro",
+    "shortDescription": "Evidence-first root-cause debugging.",
+    "longDescription": "DebugPro adds capability routing, compact intake, falsifiable hypotheses, bug hunting, evidence modes, source/runtime parity checks, browser runtime proof, CI/PR diagnosis, MCP ownership diagnosis, production evidence handling, secret redaction, technique skills, parallel escalation, result arbitration, and adjacent-sweep workflows for Codex debugging.",
+    "developerName": "Thomas Hulihan",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/thomashulihan/debugpro",
+    "privacyPolicyURL": "https://github.com/thomashulihan/debugpro/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/thomashulihan/debugpro/blob/main/TERMS.md",
+    "defaultPrompt": [
+      "Debug this failure with evidence first.",
+      "Route this DebugPro request to the right skill.",
+      "Prove whether source, cache, and runtime match."
+    ],
+    "brandColor": "#2563EB"
+  }
+}

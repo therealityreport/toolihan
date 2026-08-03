@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro Intake"
+  short_description: "Collect only the missing facts needed to debug"
+  default_prompt: "Use $debugpro-intake to collect only the facts needed to route this failure."
+policy:
+  allow_implicit_invocation: false

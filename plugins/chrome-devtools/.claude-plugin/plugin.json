@@ -1,0 +1,20 @@
+{
+  "name": "chrome-devtools",
+  "version": "0.1.1",
+  "description": "Codex Chrome DevTools plugin with route sessions, upstream MCP delegation, bounded heap analysis, live evidence bundles, API discovery, redacted cURL, performance workflows, and sync guardrails.",
+  "author": {
+    "name": "Thomas Hulihan"
+  },
+  "keywords": [
+    "chrome",
+    "devtools",
+    "runtime",
+    "network",
+    "performance",
+    "accessibility",
+    "codex"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/chrome-devtools",
+  "homepage": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/chrome-devtools"
+}

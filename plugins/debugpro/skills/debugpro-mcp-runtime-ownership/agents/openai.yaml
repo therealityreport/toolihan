@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro MCP Runtime Ownership"
+  short_description: "Prove which MCP config and runtime owns a failure"
+  default_prompt: "Use $debugpro-mcp-runtime-ownership to prove which MCP runtime owns this tool failure."
+policy:
+  allow_implicit_invocation: false

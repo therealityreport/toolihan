@@ -1,0 +1,49 @@
+flowchart TD
+  A["User uploads CSV files"] --> B["App saves files to Supabase Storage"]
+  B --> C["App creates main import job"]
+  C --> D["App creates smaller work tickets"]
+
+  D --> E["Modal workers wake up"]
+  E --> F["Worker claims one safe ticket"]
+  F --> G{"Ticket type"}
+
+  G --> H["Download file chunk"]
+  G --> I["Parse CSV rows"]
+  G --> J["Clean and normalize rows"]
+  G --> K["Create or update registration rows"]
+  G --> L["Create or update players"]
+  G --> M["Create or update parent and guardian info"]
+  G --> N["Create or update request records"]
+  G --> O["Run duplicate checks"]
+
+  H --> P["Worker reports progress"]
+  I --> P
+  J --> P
+  K --> P
+  L --> P
+  M --> P
+  N --> P
+  O --> P
+
+  P --> Q{"Ticket finished?"}
+  Q -- "No" --> P
+  Q -- "Yes" --> R["Mark ticket complete"]
+
+  P --> S{"Worker failed or stopped?"}
+  S -- "Yes" --> T["Ticket becomes retryable"]
+  T --> F
+
+  R --> U{"All required tickets complete?"}
+  U -- "No" --> E
+  U -- "Yes" --> V["Run final import checks"]
+
+  V --> W{"Any blocking failures?"}
+  W -- "Yes" --> X["Mark import failed or needs review"]
+  W -- "No" --> Y["Mark import complete"]
+
+  Y --> Z["App refreshes event data"]
+  Z --> AA["Request analyzer creates analysis tickets"]
+
+  AA --> AB["Modal workers process analysis chunks"]
+  AB --> AC["Extraction, matching, adjudication, summaries"]
+  AC --> AD["Analysis complete"]

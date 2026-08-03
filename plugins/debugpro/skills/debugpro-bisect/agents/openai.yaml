@@ -1,0 +1,6 @@
+interface:
+  display_name: "DebugPro Bisect"
+  short_description: "Find the first change that caused a regression"
+  default_prompt: "Use $debugpro-bisect to find the first change that caused this regression."
+policy:
+  allow_implicit_invocation: false
