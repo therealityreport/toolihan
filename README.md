@@ -22,6 +22,15 @@ codex plugin add tool-finder@plugins-and-skills
 
 See the complete machine-readable catalog in [`catalog.json`](catalog.json).
 
+For the application-focused collection with 35 standalone skills for skills.sh
+and seven dedicated Codex plugin cards, see
+[`therealityreport/app-skills`](https://github.com/therealityreport/app-skills):
+
+```bash
+codex plugin marketplace add therealityreport/app-skills
+npx skills add therealityreport/app-skills
+```
+
 ## Install in Claude Code
 
 The plugins that include a `.claude-plugin/plugin.json` manifest are also listed in the Claude marketplace:
