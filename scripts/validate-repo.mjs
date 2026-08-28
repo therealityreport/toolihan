@@ -8,7 +8,7 @@ const pluginsRoot = join(root, "plugins");
 const errors = [];
 const semver = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?$/;
 const forbiddenDirectories = new Set([
-  ".git", ".plan-work", ".pytest_cache", "__pycache__", "build", "coverage", "dist", "node_modules",
+  ".git", ".impeccable", ".plan-work", ".pytest_cache", "__pycache__", "build", "coverage", "dist", "node_modules",
 ]);
 const forbiddenText = [
   ["absolute macOS user path", /\/Users\/[A-Za-z0-9._-]+\//],
