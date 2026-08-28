@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "name": "plugins-and-skills",
+  "name": "toolihan",
   "owner": "The Reality Report",
-  "repository": "https://github.com/therealityreport/plugins-and-skills",
+  "repository": "https://github.com/therealityreport/toolihan",
   "plugins": [
     {
       "name": "chrome-devtools",
@@ -27,6 +27,18 @@
       "skills": 1,
       "agents": 0,
       "path": "./plugins/codex-improve"
+    },
+    {
+      "name": "context7",
+      "version": "0.1.3",
+      "description": "Current library documentation lookup through a capability-preserving Context7 MCP proxy, CLI workflows, skills, and a focused docs researcher agent.",
+      "category": "Coding",
+      "license": "MIT",
+      "codex": true,
+      "claude": false,
+      "skills": 7,
+      "agents": 1,
+      "path": "./plugins/context7"
     },
     {
       "name": "debugpro",

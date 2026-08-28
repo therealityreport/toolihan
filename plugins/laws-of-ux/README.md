@@ -22,8 +22,8 @@ So the plugin makes **applicability** and **detection-confidence** first-class:
 ## Install
 
 ```
-/plugin marketplace add therealityreport/plugins-and-skills
-/plugin install laws-of-ux@plugins-and-skills
+/plugin marketplace add therealityreport/toolihan
+/plugin install laws-of-ux@toolihan
 ```
 
 ## Commands

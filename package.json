@@ -1,8 +1,8 @@
 {
-  "name": "plugins-and-skills-marketplace",
+  "name": "toolihan-marketplace",
   "version": "1.0.0",
   "private": true,
-  "description": "Public Codex and Claude plugin marketplace maintained by The Reality Report.",
+  "description": "Toolihan's public plugins, standalone skills, MCP integrations, and MCP Apps registry.",
   "license": "MIT",
   "scripts": {
     "catalog": "node scripts/generate-catalog.mjs",

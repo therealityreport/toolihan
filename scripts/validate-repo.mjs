@@ -52,7 +52,7 @@ function walk(dir) {
 
 const codexMarketplacePath = join(root, ".agents", "plugins", "marketplace.json");
 const codexMarketplace = parseJson(codexMarketplacePath);
-if (codexMarketplace?.name !== "plugins-and-skills") errors.push("Codex marketplace name must be plugins-and-skills");
+if (codexMarketplace?.name !== "toolihan") errors.push("Codex marketplace name must be toolihan");
 if (!Array.isArray(codexMarketplace?.plugins)) errors.push("Codex marketplace plugins must be an array");
 
 const pluginNames = readdirSync(pluginsRoot)
@@ -61,6 +61,42 @@ const pluginNames = readdirSync(pluginsRoot)
 const marketplaceNames = (codexMarketplace?.plugins ?? []).map((entry) => entry.name).sort();
 if (JSON.stringify(pluginNames) !== JSON.stringify(marketplaceNames)) {
   errors.push("Codex marketplace entries must exactly match plugins/ directories");
+}
+
+const appCollection = parseJson(join(root, "collections", "app-skills.json"));
+if (appCollection?.name !== "app-skills" || !Array.isArray(appCollection?.families)) {
+  errors.push("App Skills collection must define a families array");
+} else {
+  const seenCollectionPlugins = new Set();
+  for (const family of appCollection.families) {
+    if (!pluginNames.includes(family.plugin)) errors.push(`App Skills references missing plugin ${family.plugin}`);
+    if (seenCollectionPlugins.has(family.plugin)) errors.push(`App Skills repeats plugin ${family.plugin}`);
+    seenCollectionPlugins.add(family.plugin);
+    if (!Array.isArray(family.skills) || family.skills.length === 0) {
+      errors.push(`App Skills ${family.plugin} must include at least one standalone skill`);
+      continue;
+    }
+    for (const skill of family.skills) {
+      if (!existsSync(join(root, "skills", skill, "SKILL.md"))) {
+        errors.push(`App Skills references missing standalone skill ${skill}`);
+      }
+    }
+  }
+}
+
+const mcpApps = parseJson(join(root, "mcp-apps.json"));
+if (!Array.isArray(mcpApps?.apps)) {
+  errors.push("MCP Apps registry must define an apps array");
+} else {
+  const seenApps = new Set();
+  for (const app of mcpApps.apps) {
+    if (!app.name || seenApps.has(app.name)) errors.push(`MCP Apps has a missing or repeated name: ${app.name ?? "<missing>"}`);
+    seenApps.add(app.name);
+    if (!app.appId) errors.push(`${app.name}: MCP App ID is required`);
+    for (const key of ["mcpUrl", "healthUrl"]) {
+      if (app[key] !== null && !/^https:\/\//.test(app[key] ?? "")) errors.push(`${app.name}: ${key} must be HTTPS or null`);
+    }
+  }
 }
 
 for (const entry of codexMarketplace?.plugins ?? []) {

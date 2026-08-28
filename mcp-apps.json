@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/therealityreport/toolihan",
+  "verifiedAt": "2026-08-28T22:30:00Z",
+  "apps": [
+    {"name": "pdfx", "displayName": "PDFx", "appId": "asdk_app_6a72618a6b1c81918c866f9daf9a26a7", "transport": "streamable-http", "mcpUrl": "https://pdfx.hulibrands.com/mcp", "healthUrl": "https://pdfx.hulibrands.com/healthz", "status": "live"},
+    {"name": "docs", "displayName": "Docs", "appId": "asdk_app_6a85d5a939288191b65f2dea5917d9bc", "transport": "streamable-http", "mcpUrl": "https://docs.hulibrands.com/mcp", "healthUrl": "https://docs.hulibrands.com/api/health", "status": "live"},
+    {"name": "supabase", "displayName": "Supabase", "appId": "asdk_app_69d3e5ee6a708191baa733f7b8931995", "transport": "connector-managed", "mcpUrl": null, "healthUrl": null, "status": "connector-managed"}
+  ]
+}

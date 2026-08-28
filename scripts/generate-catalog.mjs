@@ -11,9 +11,9 @@ const pluginNames = readdirSync(pluginsRoot)
 
 const catalog = {
   schemaVersion: 1,
-  name: "plugins-and-skills",
+  name: "toolihan",
   owner: "The Reality Report",
-  repository: "https://github.com/therealityreport/plugins-and-skills",
+  repository: "https://github.com/therealityreport/toolihan",
   plugins: pluginNames.map((name) => {
     const pluginRoot = join(pluginsRoot, name);
     const manifest = JSON.parse(readFileSync(join(pluginRoot, ".codex-plugin", "plugin.json"), "utf8"));
@@ -57,7 +57,7 @@ const claudePlugins = catalog.plugins
   }));
 
 const claudeMarketplace = {
-  name: "plugins-and-skills",
+  name: "toolihan",
   owner: {
     name: "The Reality Report",
     url: "https://github.com/therealityreport",

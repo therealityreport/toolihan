@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "name": "app-skills",
+  "displayName": "App Skills",
+  "description": "Toolihan plugins and standalone skills organized around a specific application, platform, or service.",
+  "repository": "https://github.com/therealityreport/toolihan",
+  "families": [
+    {"plugin": "chrome-devtools", "skills": ["chrome-devtools-accessibility", "chrome-devtools-evidence", "chrome-devtools-extension-health", "chrome-devtools-intake", "chrome-devtools-memory", "chrome-devtools-network", "chrome-devtools-performance", "chrome-devtools-repair-loop", "chrome-devtools-runtime"]},
+    {"plugin": "context7", "skills": ["context7", "context7-app-integration", "context7-cli", "context7-docs", "context7-mcp-setup", "context7-skills-registry", "context7-troubleshooting"]},
+    {"plugin": "decodo", "skills": ["decodo-agent-workflows", "decodo-browser-scrapy", "decodo-mcp-scraping", "decodo-proxy-ops", "decodo-reddit-news-visual", "decodo-sdk-api", "decodo-serp-rank-tracking", "decodo-setup", "decodo-troubleshooting"]},
+    {"plugin": "envato-r2", "skills": ["envato-r2"]},
+    {"plugin": "modal", "skills": ["modal-platform", "modal-decodo", "modal-browser-runtime", "modal-release-operations"]},
+    {"plugin": "supabase-fullstack", "skills": ["supabase-command-surface", "supabase-fullstack-review", "supabase-postgres-performance", "supabase-security-governance"]},
+    {"plugin": "vintone-studio", "skills": ["vintone-studio"]}
+  ]
+}

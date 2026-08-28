@@ -29,8 +29,8 @@ When you ask for "what is the community saying about X in the last 30 days" or r
 Add this marketplace and install the plugin:
 
 ```bash
-codex plugin marketplace add therealityreport/plugins-and-skills
-codex plugin add infographic-docs@plugins-and-skills
+codex plugin marketplace add therealityreport/toolihan
+codex plugin add infographic-docs@toolihan
 ```
 
 The Codex manifest points to `.mcp.json`, which defines the `infographic-preview-playwright` MCP server for optional previews.
@@ -40,8 +40,8 @@ The Codex manifest points to `.mcp.json`, which defines the `infographic-preview
 Add this marketplace and install the plugin in Claude Code:
 
 ```text
-/plugin marketplace add therealityreport/plugins-and-skills
-/plugin install infographic-docs@plugins-and-skills
+/plugin marketplace add therealityreport/toolihan
+/plugin install infographic-docs@toolihan
 ```
 
 ### Cowork
