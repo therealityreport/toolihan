@@ -12,11 +12,9 @@ const apiIndexPath = path.join(referencesDir, "modal-api-index.md");
 const cliIndexPath = path.join(referencesDir, "modal-cli-index.md");
 
 const docsUrl = "https://modal.com/docs/reference";
+const cliDocsUrl = "https://modal.com/docs/cli/latest";
 const localReferencePath = process.env.MODAL_REFERENCE_HTML;
-const expectedCounts = {
-  apiAndChangelog: 48,
-  cli: 24,
-};
+const localCliPath = process.env.MODAL_CLI_HTML;
 
 const reportFlagIndex = process.argv.indexOf("--report");
 const reportPath =
@@ -39,6 +37,13 @@ async function loadReferenceHtml() {
   return response.text();
 }
 
+async function loadCliHtml() {
+  if (localCliPath) return readFile(localCliPath, "utf8");
+  const response = await fetch(cliDocsUrl);
+  if (!response.ok) throw new Error(`Failed to fetch ${cliDocsUrl}: ${response.status} ${response.statusText}`);
+  return response.text();
+}
+
 function extractReferenceLinks(html) {
   const links = new Set();
   const hrefPattern = /href="(\/docs\/(?:reference|sdk\/py\/latest|cli\/latest)\/[^"#]+)(?:#[^"]*)?"/g;
@@ -58,7 +63,7 @@ function normalizeLink(link) {
 
 function extractIndexedLinks(text) {
   const links = new Set();
-  const pattern = /https:\/\/modal\.com\/docs\/(?:sdk\/py\/(?:latest\/modal\.[A-Za-z0-9_.]+|changelog)|cli\/latest\/[A-Za-z0-9_-]+)/g;
+  const pattern = /https:\/\/modal\.com\/docs\/(?:sdk\/py\/(?:latest\/[A-Za-z0-9_.]+|changelog)|cli\/latest\/[A-Za-z0-9_-]+)/g;
   for (const match of text.matchAll(pattern)) {
     links.add(normalizeLink(match[0]));
   }
@@ -81,19 +86,20 @@ if (!existsSync(apiIndexPath) || !existsSync(cliIndexPath)) {
   throw new Error("Modal API or CLI index file is missing.");
 }
 
-const [html, apiIndex, cliIndex] = await Promise.all([
+const [html, cliHtml, apiIndex, cliIndex] = await Promise.all([
   loadReferenceHtml(),
+  loadCliHtml(),
   readFile(apiIndexPath, "utf8"),
   readFile(cliIndexPath, "utf8"),
 ]);
 
 const links = extractReferenceLinks(html);
-const apiLinks = links.filter((link) => link.startsWith("https://modal.com/docs/sdk/py/latest/modal."));
-const cliLinks = links.filter((link) => link.startsWith("https://modal.com/docs/cli/latest/"));
+const apiLinks = links.filter((link) => link.startsWith("https://modal.com/docs/sdk/py/latest/"));
+const cliLinks = extractReferenceLinks(cliHtml).filter((link) => link.startsWith("https://modal.com/docs/cli/latest/"));
 const changelogLink = "https://modal.com/docs/sdk/py/changelog";
 const apiAndChangelogLinks = [...new Set(apiLinks.concat(changelogLink))].sort();
 const indexedApiLinks = extractIndexedLinks(apiIndex).filter((link) =>
-  link === changelogLink || link.startsWith("https://modal.com/docs/sdk/py/latest/modal.")
+  link === changelogLink || link.startsWith("https://modal.com/docs/sdk/py/latest/")
 );
 const indexedCliLinks = extractIndexedLinks(cliIndex).filter((link) =>
   link.startsWith("https://modal.com/docs/cli/latest/")
@@ -103,21 +109,14 @@ const missingApi = missingLinks(apiAndChangelogLinks, apiIndex);
 const missingCli = missingLinks(cliLinks, cliIndex);
 const extraApi = difference(indexedApiLinks, apiAndChangelogLinks);
 const extraCli = difference(indexedCliLinks, cliLinks);
-const countFailures = [];
-
-if (apiAndChangelogLinks.length !== expectedCounts.apiAndChangelog) {
-  countFailures.push(
-    `Expected ${expectedCounts.apiAndChangelog} API/changelog links, found ${apiAndChangelogLinks.length}.`
-  );
-}
-if (cliLinks.length !== expectedCounts.cli) {
-  countFailures.push(`Expected ${expectedCounts.cli} CLI links, found ${cliLinks.length}.`);
-}
+const requiredApi = ["https://modal.com/docs/sdk/py/latest/App", "https://modal.com/docs/sdk/py/latest/Function", "https://modal.com/docs/sdk/py/latest/Image", "https://modal.com/docs/sdk/py/latest/Server", changelogLink];
+const requiredCli = ["https://modal.com/docs/cli/latest/app", "https://modal.com/docs/cli/latest/container", "https://modal.com/docs/cli/latest/deploy", "https://modal.com/docs/cli/latest/environment"];
+const requiredFailures = missingLinks(requiredApi, apiAndChangelogLinks).concat(missingLinks(requiredApi, apiIndex), missingLinks(requiredCli, cliLinks), missingLinks(requiredCli, cliIndex));
 
 const report = {
   checkedAt: new Date().toISOString(),
   docsUrl,
-  expectedCounts,
+  cliDocsUrl,
   liveCounts: {
     apiAndChangelog: apiAndChangelogLinks.length,
     cli: cliLinks.length,
@@ -132,13 +131,13 @@ const report = {
     missingCli,
     extraCli,
   },
-  countFailures,
+  requiredFailures: [...new Set(requiredFailures)],
 };
 
-if (missingApi.length || missingCli.length || extraApi.length || extraCli.length || countFailures.length) {
+if (missingApi.length || missingCli.length || extraApi.length || extraCli.length || requiredFailures.length) {
   await writeReportFile(report);
   console.error("Modal reference coverage failed.");
-  for (const failure of countFailures) console.error(`- ${failure}`);
+  for (const failure of [...new Set(requiredFailures)]) console.error(`- Missing required canonical link: ${failure}`);
   if (missingApi.length) {
     console.error("\nMissing API links:");
     for (const link of missingApi) console.error(`- ${link}`);

@@ -9,7 +9,7 @@
 
 ## Data handling
 
-- Plugin content is packaged as static files inside the marketplace release.
+- Plugin content is packaged as static files inside the local plugin bundle.
 - Any data access happens through the host agent runtime, local filesystem access, or user-authorized tools such as the Supabase App connector.
 - This plugin does not add its own telemetry, tracking pixels, or separate data retention layer.
 
@@ -20,4 +20,4 @@
 
 ## Changes
 
-Privacy terms may be updated as the plugin packaging or distribution model changes. The canonical source is the public `plugins-and-skills` repository.
+Privacy terms may be updated as the plugin packaging or distribution model changes. The canonical source of truth should live in the public repository for this plugin once the current local-only bundle is promoted to a Git-backed home.

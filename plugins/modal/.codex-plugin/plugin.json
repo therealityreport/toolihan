@@ -1,13 +1,12 @@
 {
   "name": "modal",
-  "version": "1.0.0+codex.20260722230240",
+  "version": "1.1.0",
   "description": "Modal skills for designing, building, deploying, and operating Modal apps, jobs, web endpoints, GPU workloads, schedules, storage, and sandboxes.",
   "author": {
-    "name": "Thomas Hulihan",
-    "url": "https://github.com/therealityreport"
+    "name": "The Reality Report"
   },
-  "homepage": "https://modal.com/docs",
-  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/modal",
+  "homepage": "https://github.com/therealityreport/toolihan/tree/main/plugins/modal",
+  "repository": "https://github.com/therealityreport/toolihan",
   "license": "MIT",
   "keywords": [
     "modal",
@@ -22,19 +21,20 @@
     "codex"
   ],
   "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Modal",
     "shortDescription": "Design and operate Modal apps, functions, endpoints, and resources.",
     "longDescription": "Modal helps Codex choose the right Modal primitives, docs, CLI workflow, deployment surface, state model, security boundary, and validation path for Python cloud jobs, web endpoints, GPU inference, schedules, storage, queues, secrets, and sandboxes.",
-    "developerName": "Thomas Hulihan",
+    "developerName": "The Reality Report",
     "category": "Coding",
     "capabilities": [
       "Read",
       "Write"
     ],
-    "websiteURL": "https://modal.com/docs",
-    "privacyPolicyURL": "https://modal.com/legal/privacy-policy",
-    "termsOfServiceURL": "https://modal.com/legal/terms",
+    "websiteURL": "https://github.com/therealityreport/toolihan/tree/main/plugins/modal",
+    "privacyPolicyURL": "https://github.com/therealityreport/toolihan/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/therealityreport/toolihan/blob/main/TERMS.md",
     "defaultPrompt": [
       "Design this workload for Modal.",
       "Create a Modal deploy checklist.",

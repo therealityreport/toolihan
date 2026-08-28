@@ -9,7 +9,7 @@ Use this skill when the user wants Codex to scrape or retrieve web data through 
 
 ## Launch policy
 
-- Treat Decodo MCP as on-demand. Do not add it to plugin manifest startup registration.
+- The plugin manifest links the generic `.mcp.json` declaration, but Decodo MCP remains on-demand.
 - Start or connect Decodo MCP only for Decodo scraping, Decodo setup/debugging, or work on Decodo plugin/code.
 - For unrelated chats, keep Decodo available through skills and scripts only; do not keep `@decodo/mcp-server` running.
 
@@ -30,7 +30,8 @@ Use this skill when the user wants Codex to scrape or retrieve web data through 
 ## Preferred Decodo surface
 
 - Prefer local stdio MCP with `@decodo/mcp-server` and toolsets `web,search,social_media,ai`.
-- Use the plugin `.mcp.json` only as explicit launcher metadata, not as an always-on plugin registration.
+- The plugin `.mcp.json` exposes the generic credential-placeholder launcher; it is not a reason to
+  start the server for unrelated work.
 - Use hosted MCP only when the user has explicitly configured authorization outside plugin files.
 - Route raw HTML, JSON, CSV, and target-specific endpoint work to SDK/API.
 - Route browser-specific failures to `decodo-browser-scrapy` or `decodo-troubleshooting`.

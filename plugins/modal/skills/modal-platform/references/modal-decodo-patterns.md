@@ -162,38 +162,6 @@ status. Never persist raw credentials as part of the manifest.
 - Keep dead-letter output for failed jobs that need operator attention, with
   sanitized errors and enough context to rerun safely.
 
-## Social and Content Workflow Examples
-
-- Social/admin scrape refresh: Modal function accepts a profile or post URL,
-  calls Decodo Web Scraping API or direct HTTPX, normalizes the result, and
-  upserts current metrics or comments into the project database. Store raw HTML
-  only when needed for parser debugging, and redact headers/cookies first.
-- Import reconciliation: scheduled Modal job fetches source pages, writes a
-  sanitized artifact to `modal.Volume` or object storage, then records a manifest
-  row with source URL, parser version, and content hash. Retries must not create
-  duplicate import records.
-- Public evidence capture: browser fallback is allowed only when the source page
-  requires rendering. Keep screenshots free of tokens, local operator data, and
-  credential-bearing URLs.
-
-These examples intentionally omit Modal secret names, database URLs, Decodo
-tokens, and project-specific resource names.
-
-## Events and Roster Workflow Examples
-
-- Tournament or camp source ingestion: Modal worker accepts a source URL and run
-  ID, fetches via direct HTTPX or Decodo Web Scraping API, normalizes teams,
-  dates, and roster facts, and writes to a staging table or artifact manifest.
-- Operator review support: scrape results should become candidate rows with
-  provenance and confidence, not automatic final assignments, unless the
-  workflow has an explicit acceptance rule.
-- Export enrichment: scheduled job refreshes public source facts, writes JSON or
-  CSV artifacts to durable storage, and records content hashes so reruns do not
-  duplicate accepted changes.
-
-These examples intentionally avoid hardcoded team names, secret names, database
-connection strings, and resource identifiers.
-
 ## Routing Checklist
 
 Before proposing or generating a Modal Decodo workflow, answer:

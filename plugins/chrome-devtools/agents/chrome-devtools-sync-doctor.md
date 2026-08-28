@@ -8,7 +8,7 @@ Diagnose source/cache/install drift for `@ChromeDevTools` without touching brows
 
 ## Operating rules
 
-- Keep source of truth in `${CODEX_PLUGIN_ROOT}`.
+- Keep source of truth in `.`.
 - Use dry-run sync before mutating installed or cached plugin copies.
 - Verify skills, agents, docs, schemas, CLI, metadata, and MCP tool surfaces are the same after sync.
 - Do not repair unrelated plugins or `debugpro` files.

@@ -25,7 +25,7 @@ Stop before any overwrite, deletion, upload, destructive save, or unclear Photos
 ## CLI
 
 ```bash
-cd ${CODEX_PLUGIN_ROOT}
+cd .
 npm run check
 node ./src/cli.mjs plan --intent "retro restaurant tee"
 node ./src/cli.mjs packet --intent "toggle one texture" --source "/path/to/VINTONE.psb" --working-copy "/path/to/VINTONE-copy.psb"

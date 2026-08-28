@@ -12,8 +12,10 @@ Prefer a task-local artifact path outside the plugin tree:
 mkdir -p .plan-work/modal-platform-refresh
 curl -LfsS https://modal.com/llms.txt -o .plan-work/modal-platform-refresh/modal-llms.txt
 curl -LfsS https://modal.com/docs/reference -o .plan-work/modal-platform-refresh/reference.html
+curl -LfsS https://modal.com/docs/cli/latest -o .plan-work/modal-platform-refresh/cli.html
 test -s .plan-work/modal-platform-refresh/modal-llms.txt
 test -s .plan-work/modal-platform-refresh/reference.html
+test -s .plan-work/modal-platform-refresh/cli.html
 ```
 
 If Scrapling is available and useful for the current task:
@@ -32,15 +34,18 @@ Do not copy `https://modal.com/llms-full.txt` into the live plugin tree. If it i
 Run this after refreshing official docs and after editing `modal-api-index.md` or `modal-cli-index.md`:
 
 ```bash
-MODAL_REFERENCE_HTML=.plan-work/modal-platform-refresh/reference.html node ${CODEX_PLUGIN_ROOT}/skills/modal-platform/scripts/check-modal-reference-coverage.mjs
+MODAL_REFERENCE_HTML=.plan-work/modal-platform-refresh/reference.html MODAL_CLI_HTML=.plan-work/modal-platform-refresh/cli.html node ./skills/modal-platform/scripts/check-modal-reference-coverage.mjs
 ```
 
-Expected result: the script exits zero and reports `48 API/changelog links, 24 CLI links`. If it fails, update the API or CLI index instead of weakening the script.
+Expected result: the script exits zero, verifies required canonical links against
+separate API and CLI sources, and writes a drift report when requested. The saved
+fixture test protects parsing and required-link assertions; live link counts are
+reported for review, never treated as an acceptance threshold.
 
 To write a machine-readable drift report with link counts and changed links:
 
 ```bash
-MODAL_REFERENCE_HTML=.plan-work/modal-platform-refresh/reference.html node ${CODEX_PLUGIN_ROOT}/skills/modal-platform/scripts/check-modal-reference-coverage.mjs --report .plan-work/modal-platform-refresh/reference-coverage.json
+MODAL_REFERENCE_HTML=.plan-work/modal-platform-refresh/reference.html MODAL_CLI_HTML=.plan-work/modal-platform-refresh/cli.html node ./skills/modal-platform/scripts/check-modal-reference-coverage.mjs --report .plan-work/modal-platform-refresh/reference-coverage.json
 ```
 
 ## Repository Refresh
@@ -55,7 +60,7 @@ Use GitHub lightly:
 For the curated Modal and adjacent repo lists, use the inventory helper:
 
 ```bash
-node ${CODEX_PLUGIN_ROOT}/skills/modal-platform/scripts/refresh-modal-github-inventory.mjs
+node ./skills/modal-platform/scripts/refresh-modal-github-inventory.mjs
 ```
 
 Expected result: raw JSON and a markdown report under `.plan-work/modal-platform-refresh/`. Treat the report as review input, not as an automatic source of checked-in reference changes.

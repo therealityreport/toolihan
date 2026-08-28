@@ -9,7 +9,7 @@ Use this skill as the front door for any Supabase request. It does not replace t
 
 ## Ownership Boundary
 
-Supabase Fullstack is an editable user/system-level plugin for Supabase marketplace aggregation, project routing, and project-specific conventions. Add curated behavior for the current repository only when its local instructions authorize it.
+Supabase Fullstack is the editable user/system-level plugin for Supabase marketplace aggregation, project routing, and user-specific conventions. Keep repository-specific conventions in that repository's instructions, outside this public package.
 
 The OpenAI-built `supabase@openai-curated` plugin and shared `$supabase` App connector are not the customization target. Use the app connector when live hosted Supabase access is needed and the tools are callable.
 

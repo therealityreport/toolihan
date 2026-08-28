@@ -1,12 +1,11 @@
 {
   "name": "vintone-studio",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Codex planning and runbook plugin for safe VINTONE Photoshop editing workflows.",
   "author": {
-    "name": "The Reality Report",
-    "url": "https://github.com/therealityreport"
+    "name": "The Reality Report"
   },
-  "homepage": "https://www.instagram.com/vintonedesigns/",
+  "homepage": "https://github.com/therealityreport/toolihan/tree/main/plugins/vintone-studio",
   "license": "MIT",
   "keywords": [
     "vintone",
@@ -29,9 +28,9 @@
       "Read",
       "Write"
     ],
-    "websiteURL": "https://www.instagram.com/vintonedesigns/",
-    "privacyPolicyURL": "https://github.com/therealityreport/plugins-and-skills/blob/main/plugins/vintone-studio/PRIVACY.md",
-    "termsOfServiceURL": "https://github.com/therealityreport/plugins-and-skills/blob/main/plugins/vintone-studio/TERMS.md",
+    "websiteURL": "https://github.com/therealityreport/toolihan/tree/main/plugins/vintone-studio",
+    "privacyPolicyURL": "https://github.com/therealityreport/toolihan/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/therealityreport/toolihan/blob/main/TERMS.md",
     "defaultPrompt": [
       "Use VINTONE Studio to check setup.",
       "Create a VINTONE design plan for this idea.",
@@ -39,8 +38,7 @@
     ],
     "brandColor": "#C84A31",
     "composerIcon": "./assets/app-icon.svg",
-    "logo": "./assets/app-icon.svg",
-    "screenshots": []
+    "logo": "./assets/app-icon.svg"
   },
-  "repository": "https://github.com/therealityreport/plugins-and-skills/tree/main/plugins/vintone-studio"
+  "repository": "https://github.com/therealityreport/toolihan"
 }

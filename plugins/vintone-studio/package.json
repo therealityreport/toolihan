@@ -1,7 +1,7 @@
 {
   "name": "vintone-studio",
   "version": "0.1.0",
-  "description": "Codex plugin for copy-first VINTONE Photoshop planning and runbooks.",
+  "description": "Codex local plugin shell for copy-first VINTONE Photoshop planning and runbooks.",
   "type": "module",
   "private": true,
   "bin": {

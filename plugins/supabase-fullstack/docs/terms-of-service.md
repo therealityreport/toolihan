@@ -1,6 +1,6 @@
 # Supabase Fullstack Terms Of Service
 
-`supabase-fullstack` is provided as-is for developer assistance with Supabase security, governance, and Postgres performance workflows.
+`supabase-fullstack` is provided as-is as a local plugin bundle for developer assistance with Supabase security, governance, and Postgres performance workflows.
 
 ## Permitted use
 
@@ -22,6 +22,6 @@
 
 To the maximum extent permitted by law, the plugin author is not liable for damages arising from use, misuse, or reliance on this plugin.
 
-## Canonical hosting
+## Future canonical hosting
 
-The canonical public release is maintained in the `plugins-and-skills` repository.
+These terms are intended to be hosted from the canonical public repository for `supabase-fullstack` once the current local-only bundle is promoted to a Git-backed home.

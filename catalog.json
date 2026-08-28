@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "chrome-devtools",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "description": "Codex Chrome DevTools plugin with route sessions, upstream MCP delegation, live evidence bundles, API discovery, redacted cURL, performance workflows, and sync guardrails.",
       "category": "Coding",
       "license": "MIT",
@@ -54,7 +54,7 @@
     },
     {
       "name": "decodo",
-      "version": "0.1.0+codex.20260529004411",
+      "version": "0.2.0",
       "description": "Decodo scraping, proxy, MCP, and SDK workflows for Codex.",
       "category": "Productivity",
       "license": "MIT",
@@ -66,7 +66,7 @@
     },
     {
       "name": "envato-r2",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "description": "Search Envato with a user-owned browser session, download licensed assets, and save them to Cloudflare R2.",
       "category": "Coding",
       "license": "MIT",
@@ -126,13 +126,13 @@
     },
     {
       "name": "modal",
-      "version": "1.0.0+codex.20260722230240",
+      "version": "1.1.0",
       "description": "Modal skills for designing, building, deploying, and operating Modal apps, jobs, web endpoints, GPU workloads, schedules, storage, and sandboxes.",
       "category": "Coding",
       "license": "MIT",
       "codex": true,
       "claude": false,
-      "skills": 2,
+      "skills": 4,
       "agents": 0,
       "path": "./plugins/modal"
     },
@@ -174,7 +174,7 @@
     },
     {
       "name": "vintone-studio",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Codex planning and runbook plugin for safe VINTONE Photoshop editing workflows.",
       "category": "Productivity",
       "license": "MIT",

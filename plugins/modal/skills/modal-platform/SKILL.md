@@ -20,6 +20,7 @@ Use this after Modal is already the chosen platform.
 - P0 repo prompt snippets: `references/modal-p0-prompt-snippets.md`
 - Examples and prompts: `examples/catalog.md`, `examples/templates.md`
 - Docs refresh: `references/modal-doc-refresh.md`
+- Browser image and release workflow: `references/modal-operations-workflow.md`
 - Exact current behavior: refresh from `https://modal.com/llms.txt`.
 
 ## Preflight
@@ -35,6 +36,14 @@ Stop if Modal is not the platform owner. Use platform-evaluation for undecided p
 - Without a project rule, ask before remote deploys or mutations.
 - Confirm destructive, overwriting, production, profile, workspace, or environment changes.
 - Never reuse another project's Modal resources without explicit approval.
+
+## Focused Routes
+
+- Use `$modal-browser-runtime` for browser dependency pins, image invalidation,
+  asset installation, launch proof, telemetry, or browser-image rollback planning.
+- Use `$modal-release-operations` for a generic pre-deploy history snapshot,
+  deploy/readiness plan, time-bounded logs, canary, app-ID rollback preview, or
+  evidence receipt.
 
 ## Completion Contract
 Return:

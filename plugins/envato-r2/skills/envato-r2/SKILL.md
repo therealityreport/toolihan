@@ -25,7 +25,7 @@ Use this skill for Envato asset workflows that should end in Cloudflare R2.
 1. Install dependencies in the plugin folder:
 
 ```bash
-cd ${CODEX_PLUGIN_ROOT}
+cd .
 npm install --ignore-scripts
 ```
 
@@ -42,7 +42,7 @@ export R2_PREFIX="envato"
 3. Capture the Envato login session:
 
 ```bash
-cd ${CODEX_PLUGIN_ROOT}
+cd .
 npm run login
 ```
 
@@ -89,7 +89,7 @@ Use Envato to R2 to find a cinematic food stock photo and save the best match to
 Use the CLI when MCP tools are not loaded yet:
 
 ```bash
-cd ${CODEX_PLUGIN_ROOT}
+cd .
 npm run check-setup
 node ./src/cli.mjs check-session
 npm run search -- --query "cinematic food" --item-type photos --limit 10

@@ -13,7 +13,7 @@
       "name": "chrome-devtools",
       "source": "./plugins/chrome-devtools",
       "description": "Codex Chrome DevTools plugin with route sessions, upstream MCP delegation, live evidence bundles, API discovery, redacted cURL, performance workflows, and sync guardrails.",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "license": "MIT",
       "category": "coding"
     },
@@ -21,7 +21,7 @@
       "name": "decodo",
       "source": "./plugins/decodo",
       "description": "Decodo scraping, proxy, MCP, and SDK workflows for Codex.",
-      "version": "0.1.0+codex.20260529004411",
+      "version": "0.2.0",
       "license": "MIT",
       "category": "productivity"
     },
@@ -29,7 +29,7 @@
       "name": "envato-r2",
       "source": "./plugins/envato-r2",
       "description": "Search Envato with a user-owned browser session, download licensed assets, and save them to Cloudflare R2.",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "license": "MIT",
       "category": "coding"
     },
@@ -93,7 +93,7 @@
       "name": "vintone-studio",
       "source": "./plugins/vintone-studio",
       "description": "Codex planning and runbook plugin for safe VINTONE Photoshop editing workflows.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "license": "MIT",
       "category": "productivity"
     }

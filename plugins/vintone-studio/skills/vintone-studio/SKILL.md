@@ -42,7 +42,7 @@ Create an export checklist for this VINTONE working copy.
 Use the CLI when MCP tools are not loaded yet:
 
 ```bash
-cd ${CODEX_PLUGIN_ROOT}
+cd .
 npm run check
 node ./src/cli.mjs plan --intent "vintage seafood tee"
 node ./src/cli.mjs packet --intent "change accent color" --source "/path/to/original.psb" --working-copy "/path/to/copy.psb"

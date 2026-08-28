@@ -18,7 +18,7 @@ The plugin does not ask for your Envato password and does not bypass CAPTCHA, su
 ## Install
 
 ```bash
-cd ${CODEX_PLUGIN_ROOT}
+cd .
 npm install --ignore-scripts
 ```
 

@@ -81,7 +81,6 @@ export function printHelp({ name, description, usage, options = [], examples = [
     }
   }
 }
-
 export function requireCredentials(state, { dryRun, label }) {
   if (dryRun) {
     return;

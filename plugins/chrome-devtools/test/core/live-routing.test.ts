@@ -87,7 +87,7 @@ test("blocks live ownership validation when URL policy is blocked or unconfigure
     {
       pageId: "page-blocked",
       targetId: "target-blocked",
-      profileLabel: "Work",
+      profileLabel: "Codex",
       sourceRoute: "cdp",
       owningAgentId: "agent-a",
       owningSessionId: "session-a",
@@ -100,7 +100,7 @@ test("blocks live ownership validation when URL policy is blocked or unconfigure
     {
       pageId: "page-unconfigured",
       targetId: "target-unconfigured",
-      profileLabel: "Personal",
+      profileLabel: "Codex",
       sourceRoute: "official-mcp",
       owningAgentId: "agent-a",
       owningSessionId: "session-a",
@@ -211,7 +211,7 @@ test("blocks strict profile-connected routes when the URL misses policy", () => 
           connectionMode: "autoConnect",
           owningAgentId: "agent-a",
           owningSessionId: "session-a",
-          profileLabel: "Work",
+          profileLabel: "Codex",
           strict: true,
           allowedUrlPatterns: ["https://example.test/*"],
           url: "https://other.test/dashboard"

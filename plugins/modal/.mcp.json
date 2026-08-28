@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "modal-readonly": {
+      "command": "./scripts/start-modal-mcp.sh"
+    }
+  }
+}
